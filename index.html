@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembelajaran Interaktif Akuntansi Kewajiban (SAK EP)</title>
+<meta name="description" content="Materi pembelajaran interaktif akuntansi kewajiban berdasarkan SAK EP: pengertian, pengakuan & pengukuran, klasifikasi, penyelesaian, garansi, dan kuis. Cocok untuk SMK Akuntansi.">
+<meta name="author" content="Pembelajaran Akuntansi">
+<meta name="theme-color" content="#1a5f9e">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pembelajaran Interaktif Akuntansi Kewajiban (SAK EP)">
+<meta property="og:description" content="Materi interaktif akuntansi kewajiban: pengertian, pengakuan, klasifikasi, garansi, dan kuis. Gratis & bisa diakses siapa saja.">
+<meta property="og:locale" content="id_ID">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pembelajaran Interaktif Akuntansi Kewajiban">
+<meta name="twitter:description" content="Materi interaktif akuntansi kewajiban berdasarkan SAK EP.">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📘</text></svg>">
+
+<style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+    body { background: #f4f7fc; padding: 20px; display: flex; justify-content: center; transition: background 0.3s; }
+    .container { max-width: 1000px; width: 100%; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; padding: 20px 25px 30px; transition: background 0.3s; }
+    h1 { font-size: 28px; color: #0a2e4b; border-left: 8px solid #2a7de1; padding-left: 18px; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    h1 small { font-size: 16px; font-weight: normal; color: #4a6a85; }
+
+    .toolbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .icon-btn { background: #eef3f9; border: none; padding: 6px 14px; border-radius: 30px; font-size: 13px; font-weight: 600; color: #1a5f9e; cursor: pointer; transition: 0.2s; }
+    .icon-btn:hover { background: #dbe7f3; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 25px; border-bottom: 2px solid #dde4ec; padding-bottom: 5px; }
+    .tab-btn { background: transparent; border: none; padding: 10px 18px; font-size: 15px; font-weight: 600; color: #3e5a77; border-radius: 30px; cursor: pointer; transition: 0.2s; }
+    .tab-btn:hover { background: #e6edf5; }
+    .tab-btn.active { background: #1a5f9e; color: white; box-shadow: 0 4px 10px rgba(26,95,158,0.3); }
+    .tab-content { display: none; animation: fade 0.3s ease; }
+    .tab-content.active { display: block; }
+    @keyframes fade { 0% { opacity: 0.3; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card { background: #f9fafc; border-radius: 16px; padding: 20px 22px; margin-bottom: 18px; border-left: 5px solid #2a7de1; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    .card h3 { color: #0a2e4b; margin-bottom: 10px; font-size: 20px; }
+    .card ul, .card p { color: #1d2c3f; line-height: 1.7; }
+    .card ul { padding-left: 25px; }
+    .highlight { background: #e1edfb; padding: 2px 8px; border-radius: 6px; font-weight: 600; color: #0a3b66; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
+    @media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } .tab-btn { font-size: 13px; padding: 8px 12px; } h1 { font-size: 22px; } }
+
+    .dd-area { display: flex; flex-wrap: wrap; gap: 15px; margin: 15px 0; }
+    .dd-items { display: flex; flex-wrap: wrap; gap: 10px; padding: 15px; background: #eef3f9; border-radius: 16px; min-height: 70px; width: 100%; }
+    .dd-item { background: white; border: 2px solid #b8ccdf; padding: 8px 16px; border-radius: 40px; font-weight: 500; cursor: grab; user-select: none; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: 0.2s; }
+    .dd-item.dragging { opacity: 0.4; }
+    .dd-item:hover { border-color: #2a7de1; background: #f0f6ff; }
+    .dd-columns { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 10px; }
+    .dd-col { flex: 1 1 200px; background: #f9fafc; border: 2px dashed #b8ccdf; border-radius: 16px; padding: 15px; min-height: 120px; transition: 0.2s; }
+    .dd-col.drag-over { border-color: #2a7de1; background: #e5eff9; }
+    .dd-col h4 { text-align: center; margin-bottom: 10px; color: #1a4b77; }
+    .dd-col .dd-item { margin: 5px 0; cursor: default; display: inline-block; }
+    .dd-col .dd-item.dropped { border-color: #2a7de1; background: #dce8f5; }
+    .btn-reset { background: #e0e8f0; border: none; padding: 6px 18px; border-radius: 30px; cursor: pointer; font-weight: 600; color: #1a3a5a; margin-top: 8px; transition: 0.2s; }
+    .btn-reset:hover { background: #c8d6e6; }
+
+    .simulasi { background: #f0f5fb; border-radius: 16px; padding: 18px 22px; margin-top: 10px; }
+    .simulasi label { display: block; margin: 10px 0 4px; font-weight: 600; color: #1a3b5e; }
+    .simulasi input[type="number"], .simulasi input[type="range"] { width: 100%; padding: 8px 12px; border: 1px solid #bccfe0; border-radius: 30px; font-size: 15px; }
+    .simulasi .result { background: white; padding: 15px; border-radius: 12px; margin-top: 15px; border-left: 6px solid #1a6f3c; }
+    .simulasi .result span { font-weight: 700; color: #0c3d1f; }
+
+    .quiz-progress { height: 8px; background: #e0e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 15px; }
+    .quiz-progress-bar { height: 100%; background: linear-gradient(90deg, #2a7de1, #1a5f9e); width: 0%; transition: width 0.4s ease; border-radius: 10px; }
+
+    .quiz-question { background: white; padding: 18px 20px; margin-bottom: 15px; border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #e2eaf2; }
+    .quiz-question p { font-weight: 600; font-size: 17px; }
+    .quiz-options label { display: block; margin: 6px 0; padding: 8px 14px; background: #f4f8fe; border-radius: 30px; cursor: pointer; transition: 0.15s; border: 1px solid transparent; }
+    .quiz-options label:hover { background: #e3edf9; }
+    .quiz-options input[type="radio"] { margin-right: 12px; accent-color: #1a5f9e; }
+    .quiz-feedback { margin-top: 8px; padding: 10px 14px; border-radius: 12px; font-weight: 500; }
+    .quiz-feedback.benar { background: #d5f0e0; color: #0a4628; }
+    .quiz-feedback.salah { background: #fce4e4; color: #8b2a2a; }
+    .quiz-score { text-align: right; font-size: 18px; font-weight: 700; color: #1a4b77; margin-top: 10px; }
+    .btn-check { background: #1a5f9e; border: none; color: white; padding: 8px 28px; border-radius: 40px; font-weight: 600; cursor: pointer; margin-top: 5px; transition: 0.2s; }
+    .btn-check:hover { background: #0f4a7a; }
+    .btn-reset-quiz { background: #dde4ec; border: none; padding: 6px 20px; border-radius: 30px; cursor: pointer; font-weight: 600; }
+    .btn-reset-quiz:hover { background: #c8d4e2; }
+    footer { margin-top: 30px; font-size: 14px; color: #6b7f94; text-align: center; border-top: 1px solid #dce4ed; padding-top: 18px; }
+
+    /* ===== DARK MODE ===== */
+    body.dark { background: #0f1720; }
+    body.dark .container { background: #15202b; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    body.dark h1 { color: #e0eaf5; }
+    body.dark h1 small { color: #8fa8c0; }
+    body.dark .tabs { border-bottom-color: #2a3a4a; }
+    body.dark .tab-btn { color: #a0b8cc; }
+    body.dark .tab-btn:hover { background: #1e2c3b; }
+    body.dark .tab-btn.active { background: #2a7de1; color: #fff; }
+    body.dark .icon-btn { background: #24333f; color: #a5c8eb; }
+    body.dark .icon-btn:hover { background: #2a3a4a; }
+    body.dark .card { background: #1a2532; border-left-color: #2a7de1; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    body.dark .card h3 { color: #cfe3f5; }
+    body.dark .card ul, body.dark .card p, body.dark .card ol { color: #b8c8d8; }
+    body.dark .highlight { background: #1e3a5a; color: #a5c8eb; }
+    body.dark blockquote { background: #1e2c3b !important; color: #b8c8d8; }
+    body.dark .dd-items { background: #1a2532; }
+    body.dark .dd-item { background: #24333f; border-color: #3a4d5e; color: #d4dde8; }
+    body.dark .dd-item:hover { border-color: #2a7de1; background: #1e3a5a; }
+    body.dark .dd-col { background: #1a2532; border-color: #3a4d5e; }
+    body.dark .dd-col h4 { color: #a5c8eb; }
+    body.dark .dd-col .dd-item.dropped { background: #1e3a5a; border-color: #2a7de1; }
+    body.dark .btn-reset { background: #24333f; color: #b8c8d8; }
+    body.dark .btn-reset:hover { background: #2a3a4a; }
+    body.dark .simulasi { background: #1a2532; }
+    body.dark .simulasi label { color: #b8c8d8; }
+    body.dark .simulasi input[type="number"] { background: #24333f; border-color: #3a4d5e; color: #d4dde8; }
+    body.dark .simulasi .result { background: #24333f; color: #d4dde8; border-left-color: #2a9e5f; }
+    body.dark .simulasi .result span { color: #6ee7a3; }
+    body.dark .quiz-progress { background: #24333f; }
+    body.dark .quiz-question { background: #1a2532; border-color: #2a3a4a; }
+    body.dark .quiz-question p { color: #d4dde8; }
+    body.dark .quiz-options label { background: #24333f; color: #c8d4e0; }
+    body.dark .quiz-options label:hover { background: #2a3a4a; }
+    body.dark .quiz-feedback.benar { background: #1a3d2a; color: #6ee7a3; }
+    body.dark .quiz-feedback.salah { background: #3d1a1a; color: #f8a0a0; }
+    body.dark .quiz-score { color: #a5c8eb; }
+    body.dark .btn-reset-quiz { background: #24333f; color: #b8c8d8; }
+    body.dark .btn-reset-quiz:hover { background: #2a3a4a; }
+    body.dark footer { color: #7a8fa5; border-top-color: #2a3a4a; }
+    body.dark div[style*="background:#e2ecf7"], body.dark div[style*="background:#eaf1f9"],
+    body.dark div[style*="background:#f4f8fe"], body.dark div[style*="background:#e6eff8"] {
+        background: #1e2c3b !important; color: #b8c8d8;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <div class="toolbar">
+        <button class="icon-btn" id="themeToggle" title="Ganti tema">🌙 Mode Gelap</button>
+        <button class="icon-btn" id="shareBtn" title="Bagikan halaman">📤 Bagikan</button>
+    </div>
+
+    <h1>📘 Pembelajaran Interaktif <br><small>Akuntansi Kewajiban (SAK EP)</small></h1>
+
+    <div class="tabs" id="tabHeaders">
+        <button class="tab-btn active" data-tab="tab1">Pengertian</button>
+        <button class="tab-btn" data-tab="tab2">Pengakuan &amp; Pengukuran</button>
+        <button class="tab-btn" data-tab="tab3">Klasifikasi</button>
+        <button class="tab-btn" data-tab="tab4">Penyelesaian &amp; Pengungkapan</button>
+        <button class="tab-btn" data-tab="tab5">Topik Khusus</button>
+        <button class="tab-btn" data-tab="tab6">Garansi</button>
+        <button class="tab-btn" data-tab="tab7">Kuis</button>
+    </div>
+
+    <div id="tab1" class="tab-content active">
+        <div class="card">
+            <h3>📌 Pengertian Kewajiban (Liabilitas)</h3>
+            <p>Sesuai <strong>PSAK No. 9</strong> &amp; <strong>SAK EP Bab 22</strong>:</p>
+            <blockquote style="background:#e6eff8; padding:14px 20px; border-radius:12px; margin:12px 0; font-style:italic;">
+                "Kewajiban kini entitas yang timbul dari peristiwa masa lalu, yang penyelesaiannya dapat mengakibatkan arus keluar sumber daya entitas yang mengandung manfaat ekonomi."
+            </blockquote>
+        </div>
+        <div class="card">
+            <h3>🔑 3 Karakteristik Kewajiban</h3>
+            <ul>
+                <li><span class="highlight">Peristiwa masa lalu</span> — ada transaksi atau kejadian yang sudah terjadi.</li>
+                <li><span class="highlight">Kewajiban kini</span> — entitas memiliki tanggung jawab hukum atau konstruktif.</li>
+                <li><span class="highlight">Arus keluar sumber daya</span> — penyelesaiannya akan mengurangi aset (uang, barang, dsb).</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>⏳ Kapan Diakui?</h3>
+            <ul>
+                <li>Kieso (2011): pada saat perjanjian (kontrak) disetujui kedua belah pihak.</li>
+                <li>Siegel &amp; Shim (1994): pada saat terjadinya peristiwa, baik tertulis maupun lisan.</li>
+                <li><strong>SAK EP</strong>: diakui jika <em>memenuhi definisi</em>, <em>dapat diukur</em>, <em>relevan</em>, dan <em>andal</em> (lihat Tab 2).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <div class="card">
+            <h3>📏 4 Kriteria Pengakuan Kewajiban</h3>
+            <ol style="padding-left:25px; line-height:1.9;">
+                <li><strong>Memenuhi definisi</strong> kewajiban.</li>
+                <li><strong>Dapat diukur</strong> dengan nilai nominal yang andal.</li>
+                <li><strong>Relevan</strong> — mempengaruhi keputusan pengguna laporan keuangan.</li>
+                <li><strong>Dapat diandalkan</strong> — penyajiannya jujur dan dapat diverifikasi.</li>
+            </ol>
+        </div>
+        <div class="card">
+            <h3>📊 Pengukuran Kewajiban</h3>
+            <ul>
+                <li><strong>Nilai awal (initial)</strong>: umumnya sebesar <span class="highlight">nilai wajar</span> atau kas yang diterima.</li>
+                <li><strong>Nilai berjalan (subsequent)</strong>: menggunakan <span class="highlight">biaya perolehan diamortisasi</span> dengan metode suku bunga efektif (untuk utang jangka panjang).</li>
+                <li><strong>Estimasi terbaik</strong>: untuk provisi (seperti garansi, litigasi) berdasarkan data historis atau manajemen.</li>
+            </ul>
+            <p style="margin-top:10px; background:#eaf1f9; padding:12px; border-radius:12px;">
+                📖 <strong>SAK EP Bab 11</strong> (Instrumen Keuangan Dasar) mengatur pengukuran utang bank, utang usaha, dan wesel.
+            </p>
+        </div>
+    </div>
+
+    <div id="tab3" class="tab-content">
+        <div class="card">
+            <h3>📂 Klasifikasi Kewajiban</h3>
+            <p><strong>Jangka Pendek (Current)</strong> — jatuh tempo ≤ 12 bulan atau dalam siklus operasi normal.</p>
+            <p><strong>Jangka Panjang (Non‑current)</strong> — jatuh tempo &gt; 12 bulan.</p>
+            <p style="margin-top:8px;"><em>SAK EP Bab 4</em>: klasifikasikan sebagai jangka pendek jika entitas memiliki hak tanpa syarat untuk menangguhkan penyelesaian selama ≥12 bulan.</p>
+        </div>
+
+        <div style="background:#f4f8fe; border-radius:16px; padding:15px 18px;">
+            <h4 style="margin-bottom:5px;">🧩 Latihan Klasifikasi</h4>
+            <p style="font-size:14px; color:#3a5a79;">Seret setiap jenis utang ke kolom yang sesuai (Jangka Pendek atau Jangka Panjang).</p>
+            <div class="dd-area">
+                <div class="dd-items" id="ddItems">
+                    <div class="dd-item" draggable="true" data-type="current">Utang Dagang</div>
+                    <div class="dd-item" draggable="true" data-type="current">Utang Gaji</div>
+                    <div class="dd-item" draggable="true" data-type="current">Utang Pajak</div>
+                    <div class="dd-item" draggable="true" data-type="long">Utang Obligasi (10 tahun)</div>
+                    <div class="dd-item" draggable="true" data-type="long">Utang Bank (5 tahun)</div>
+                    <div class="dd-item" draggable="true" data-type="current">Utang Dividen (akan dibayar 3 bulan)</div>
+                    <div class="dd-item" draggable="true" data-type="long">Utang Hipotik (15 tahun)</div>
+                    <div class="dd-item" draggable="true" data-type="current">Utang Wesel (60 hari)</div>
+                </div>
+                <div class="dd-columns">
+                    <div class="dd-col" id="colCurrent" data-col="current">
+                        <h4>📆 Jangka Pendek</h4>
+                        <div class="dd-placeholder" style="color:#8899aa; font-size:14px; text-align:center; padding:10px;">(taruh di sini)</div>
+                    </div>
+                    <div class="dd-col" id="colLong" data-col="long">
+                        <h4>📅 Jangka Panjang</h4>
+                        <div class="dd-placeholder" style="color:#8899aa; font-size:14px; text-align:center; padding:10px;">(taruh di sini)</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-reset" id="resetDD">↺ Reset Latihan</button>
+            <div id="ddFeedback" style="margin-top:10px; font-weight:600; color:#1a4b77;"></div>
+        </div>
+    </div>
+
+    <div id="tab4" class="tab-content">
+        <div class="card">
+            <h3>💸 Penyelesaian Kewajiban</h3>
+            <ul>
+                <li><strong>Pembayaran kas</strong> — cara paling umum.</li>
+                <li><strong>Penyerahan aset lain</strong> (misal: barang, investasi).</li>
+                <li><strong>Konversi ke ekuitas</strong> (utang diubah menjadi saham).</li>
+                <li><strong>Hapus buku</strong> (jika kewajiban kadaluwarsa atau dihapuskan).</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>📝 Pengungkapan (CALK)</h3>
+            <ul>
+                <li>Jatuh tempo, suku bunga, dan jaminan.</li>
+                <li><strong>Liabilitas kontingensi</strong> (kewajiban yang mungkin terjadi, misal: gugatan hukum) — <em>tidak dicatat di neraca</em>, tetapi diungkapkan di Catatan Atas Laporan Keuangan (CALK).</li>
+                <li>Referensi: <strong>SAK EP Bab 21</strong> (Provisi dan Kontinjensi).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="tab5" class="tab-content">
+        <div class="card">
+            <h3>🧠 Topik Khusus Terkait Kewajiban</h3>
+            <ul>
+                <li><strong>Restrukturisasi Utang</strong> — modifikasi syarat (perpanjangan, penurunan bunga, pemotongan pokok) karena kesulitan keuangan.</li>
+                <li><strong>Biaya Pinjaman (PSAK 26)</strong> — bunga dapat <span class="highlight">dikapitalisasi</span> ke aset jika pinjaman digunakan untuk konstruksi aset.</li>
+                <li><strong>Transaksi Sewa (PSAK 73)</strong> — mengakui <em>kewajiban sewa</em> dan <em>hak guna aset</em> untuk sewa pembiayaan.</li>
+                <li><strong>Mata Uang Asing</strong> — utang dalam valas dinilai ulang dengan kurs tengah BI; <em>selisih kurs</em> diakui sebagai laba/rugi.</li>
+                <li><strong>Pendapatan Diterima di Muka</strong> — uang diterima, barang/jasa belum diberikan; dicatat sebagai liabilitas sampai kinerja selesai.</li>
+                <li><strong>Off‑Balance Sheet</strong> — liabilitas kontingensi yang cukup material wajib diungkap dalam CALK.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="tab6" class="tab-content">
+        <div class="card">
+            <h3>🛠️ Garansi sebagai Provisi (SAK EP Bab 21)</h3>
+            <ul>
+                <li>Garansi produk menimbulkan <strong>kewajiban hukum</strong> (kontrak) untuk memperbaiki/mengganti.</li>
+                <li>Diakui pada saat <strong>penjualan</strong> terjadi (bukan saat klaim).</li>
+                <li>Nilai diestimasi berdasarkan data historis (misal: % kerusakan).</li>
+            </ul>
+            <div style="background:#e2ecf7; padding:12px 16px; border-radius:12px; margin-top:10px;">
+                <strong>Jurnal saat penjualan:</strong><br>
+                Debit: Beban Garansi &nbsp;&nbsp;|&nbsp;&nbsp; Kredit: Provisi Garansi (liabilitas)<br>
+                <strong>Saat klaim:</strong><br>
+                Debit: Provisi Garansi &nbsp;&nbsp;|&nbsp;&nbsp; Kredit: Kas / Persediaan Suku Cadang
+            </div>
+        </div>
+
+        <div class="simulasi">
+            <h4>📊 Simulasi Estimasi Garansi</h4>
+            <label for="penjualan">Total Penjualan (Rp)</label>
+            <input type="number" id="penjualan" value="100000000" step="1000000">
+            <label for="persen">Estimasi Persentase Klaim Garansi (%)</label>
+            <input type="range" id="persen" min="0" max="10" step="0.5" value="3">
+            <span id="persenDisplay">3,0%</span>
+            <div class="result">
+                <strong>Estimasi Beban Garansi:</strong><br>
+                <span id="garansiResult">Rp 3.000.000</span>
+            </div>
+            <p style="font-size:14px; color:#3e5e7a;">* Berdasarkan data historis, gunakan estimasi terbaik.</p>
+        </div>
+    </div>
+
+    <div id="tab7" class="tab-content">
+        <h3 style="margin-bottom:18px;">📝 Kuis Pemahaman</h3>
+        <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
+        <div id="quizContainer"></div>
+        <div class="quiz-score" id="quizScore">Skor: 0 / 0</div>
+        <button class="btn-reset-quiz" id="resetQuiz">↺ Ulangi Kuis</button>
+    </div>
+
+    <footer>
+        Materi berdasarkan SAK Entitas Privat (SAK EP) &amp; PSAK terkait. Dibuat untuk pembelajaran SMK Akuntansi.
+    </footer>
+</div>
+
+<script>
+    // ========== TAB SYSTEM ==========
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const target = this.dataset.tab;
+            tabBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            tabContents.forEach(c => c.classList.remove('active'));
+            document.getElementById(target).classList.add('active');
+        });
+    });
+
+    // ========== DARK MODE ==========
+    const themeToggle = document.getElementById('themeToggle');
+    function applyTheme(dark) {
+        document.body.classList.toggle('dark', dark);
+        themeToggle.textContent = dark ? '☀️ Mode Terang' : '🌙 Mode Gelap';
+        localStorage.setItem('themeKewajiban', dark ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('themeKewajiban') === 'dark') applyTheme(true);
+    themeToggle.addEventListener('click', () => {
+        applyTheme(!document.body.classList.contains('dark'));
+    });
+
+    // ========== SHARE ==========
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+        const url = window.location.href;
+        const data = {
+            title: 'Pembelajaran Interaktif Akuntansi Kewajiban (SAK EP)',
+            text: 'Materi interaktif akuntansi kewajiban — gratis & bisa diakses siapa saja.',
+            url
+        };
+        if (navigator.share) {
+            try { await navigator.share(data); return; } catch (e) {}
+        }
+        try {
+            await navigator.clipboard.writeText(url);
+            alert('✅ Link halaman berhasil disalin:\n' + url);
+        } catch (e) {
+            prompt('Copy link ini untuk dibagikan:', url);
+        }
+    });
+
+    // ========== DRAG & DROP ==========
+    const colCurrent = document.getElementById('colCurrent');
+    const colLong = document.getElementById('colLong');
+    const resetDD = document.getElementById('resetDD');
+    const ddFeedback = document.getElementById('ddFeedback');
+    let dragData = null;
+
+    function attachDrag(item) {
+        item.addEventListener('dragstart', function(e) {
+            this.classList.add('dragging');
+            dragData = this;
+            e.dataTransfer.setData('text/plain', this.textContent);
+        });
+        item.addEventListener('dragend', function() { this.classList.remove('dragging'); });
+    }
+    document.querySelectorAll('.dd-item').forEach(attachDrag);
+
+    function allowDrop(e) { e.preventDefault(); }
+    [colCurrent, colLong].forEach(col => {
+        col.addEventListener('dragover', allowDrop);
+        col.addEventListener('dragenter', function() { this.classList.add('drag-over'); });
+        col.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
+        col.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            if (!dragData) return;
+            const placeholder = this.querySelector('.dd-placeholder');
+            if (placeholder) placeholder.remove();
+            const clone = dragData.cloneNode(true);
+            clone.draggable = false;
+            clone.classList.add('dropped');
+            this.appendChild(clone);
+            dragData.remove();
+            dragData = null;
+            checkClassification();
+        });
+    });
+
+    function checkClassification() {
+        const currentItems = colCurrent.querySelectorAll('.dd-item');
+        const longItems = colLong.querySelectorAll('.dd-item');
+        let correct = 0, total = 0;
+        currentItems.forEach(item => { total++; if (item.dataset.type === 'current') correct++; });
+        longItems.forEach(item => { total++; if (item.dataset.type === 'long') correct++; });
+        if (total === 0) { ddFeedback.textContent = 'Belum ada yang ditempatkan. Seret item ke kolom!'; return; }
+        if (correct === total) ddFeedback.innerHTML = '✅ <span style="color:#0a6b3a;">Semua benar! Klasifikasi Anda tepat.</span>';
+        else ddFeedback.innerHTML = '⚠️ Masih ada yang salah tempat. Periksa kembali jenis utang. (Benar: '+correct+'/'+total+')';
+    }
+
+    resetDD.addEventListener('click', function() {
+        const allDropped = document.querySelectorAll('.dd-col .dd-item');
+        const container = document.getElementById('ddItems');
+        allDropped.forEach(item => {
+            item.draggable = true;
+            item.classList.remove('dropped');
+            container.appendChild(item);
+            attachDrag(item);
+        });
+        [colCurrent, colLong].forEach(col => {
+            if (!col.querySelector('.dd-item') && !col.querySelector('.dd-placeholder')) {
+                const ph = document.createElement('div');
+                ph.className = 'dd-placeholder';
+                ph.style.cssText = 'color:#8899aa; font-size:14px; text-align:center; padding:10px;';
+                ph.textContent = '(taruh di sini)';
+                col.appendChild(ph);
+            }
+        });
+        ddFeedback.textContent = 'Latihan direset. Seret item ke kolom yang benar.';
+    });
+
+    // ========== GARANSI SIMULATOR ==========
+    const penjualanInput = document.getElementById('penjualan');
+    const persenInput = document.getElementById('persen');
+    const persenDisplay = document.getElementById('persenDisplay');
+    const garansiResult = document.getElementById('garansiResult');
+    function updateGaransi() {
+        const penjualan = parseFloat(penjualanInput.value) || 0;
+        const persen = parseFloat(persenInput.value) || 0;
+        persenDisplay.textContent = persen.toFixed(1) + '%';
+        const estimasi = penjualan * (persen / 100);
+        garansiResult.textContent = 'Rp ' + estimasi.toLocaleString('id-ID');
+    }
+    penjualanInput.addEventListener('input', updateGaransi);
+    persenInput.addEventListener('input', updateGaransi);
+    updateGaransi();
+
+    // ========== KUIS ==========
+    const quizData = [
+        { question: '1. Kewajiban diakui dalam laporan keuangan jika memenuhi kriteria …',
+          options: ['Memenuhi definisi dan dapat diukur','Hanya jika ada kontrak tertulis','Setelah dibayar','Jika disetujui oleh direksi'], correct: 0 },
+        { question: '2. Manakah yang termasuk kewajiban jangka pendek?',
+          options: ['Utang Obligasi 10 tahun','Utang Bank 5 tahun','Utang Gaji','Utang Hipotik'], correct: 2 },
+        { question: '3. Garansi produk dicatat sebagai …',
+          options: ['Beban pada saat klaim terjadi','Provisi (liabilitas) pada saat penjualan','Pengurang pendapatan','Aset tidak lancar'], correct: 1 },
+        { question: '4. Biaya pinjaman yang digunakan untuk membangun gedung dapat …',
+          options: ['Dikapitalisasi ke aset','Dibebankan langsung','Dihapuskan','Ditangguhkan selamanya'], correct: 0 },
+        { question: '5. Pendapatan diterima di muka termasuk …',
+          options: ['Ekuitas','Pendapatan','Kewajiban','Aset'], correct: 2 }
+    ];
+    const QUIZ_KEY = 'quizKewajibanJawaban';
+
+    function buildQuiz() {
+        const container = document.getElementById('quizContainer');
+        container.innerHTML = '';
+        const saved = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}');
+        quizData.forEach((q, idx) => {
+            const div = document.createElement('div');
+            div.className = 'quiz-question';
+            div.dataset.idx = idx;
+            div.innerHTML = `<p>${q.question}</p><div class="quiz-options"></div><div class="quiz-feedback" id="fb${idx}"></div>`;
+            const optWrap = div.querySelector('.quiz-options');
+            q.options.forEach((opt, optIdx) => {
+                const lbl = document.createElement('label');
+                lbl.innerHTML = `<input type="radio" name="q${idx}" value="${optIdx}"> ${opt}`;
+                optWrap.appendChild(lbl);
+            });
+            container.appendChild(div);
+            const radios = div.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                if (saved[idx] === parseInt(radio.value)) {
+                    radio.checked = true;
+                    checkQuestion(idx, false);
+                }
+                radio.addEventListener('change', function() { checkQuestion(idx, true); });
+            });
+        });
+        updateScore();
+        updateQuizProgress();
+    }
+
+    function checkQuestion(idx, save) {
+        const qDiv = document.querySelector(`.quiz-question[data-idx="${idx}"]`);
+        const selected = qDiv.querySelector('input[type="radio"]:checked');
+        const fb = document.getElementById(`fb${idx}`);
+        if (!selected) return;
+        const val = parseInt(selected.value);
+        if (save !== false) {
+            const answers = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}');
+            answers[idx] = val;
+            localStorage.setItem(QUIZ_KEY, JSON.stringify(answers));
+        }
+        if (val === quizData[idx].correct) {
+            fb.className = 'quiz-feedback benar';
+            fb.textContent = '✅ Jawaban benar!';
+        } else {
+            fb.className = 'quiz-feedback salah';
+            fb.textContent = '❌ Jawaban kurang tepat. Coba lagi.';
+        }
+        updateScore();
+        updateQuizProgress();
+    }
+
+    function updateScore() {
+        const total = quizData.length;
+        let benar = 0;
+        quizData.forEach((q, idx) => {
+            const fb = document.getElementById(`fb${idx}`);
+            if (fb && fb.classList.contains('benar')) benar++;
+        });
+        document.getElementById('quizScore').textContent = `Skor: ${benar} / ${total}`;
+    }
+
+    function updateQuizProgress() {
+        const total = quizData.length;
+        const answers = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}');
+        const answered = Object.keys(answers).length;
+        const pct = (answered / total) * 100;
+        document.getElementById('quizProgressBar').style.width = pct + '%';
+    }
+
+    function resetQuiz() {
+        localStorage.removeItem(QUIZ_KEY);
+        document.querySelectorAll('.quiz-question input[type="radio"]').forEach(r => r.checked = false);
+        document.querySelectorAll('.quiz-feedback').forEach(fb => { fb.className = 'quiz-feedback'; fb.textContent = ''; });
+        updateScore();
+        updateQuizProgress();
+    }
+
+    buildQuiz();
+    document.getElementById('resetQuiz').addEventListener('click', resetQuiz);
+</script>
+</body>
+</html>
