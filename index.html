@@ -4,39 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pembelajaran Interaktif Akuntansi Kewajiban (SAK EP)</title>
-<meta name="description" content="Materi interaktif akuntansi kewajiban SAK EP: pengertian, pengakuan, klasifikasi, garansi, dan kuis dengan animasi & audio.">
+<meta name="description" content="Materi interaktif akuntansi kewajiban SAK EP dengan ilustrasi, animasi, dan kuis.">
 <meta name="theme-color" content="#6366f1">
-
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📘</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <style>
 :root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #a5b4fc;
-    --accent: #06b6d4;
-    --accent-2: #f59e0b;
-    --success: #10b981;
-    --danger: #ef4444;
-    --bg: #f8fafc;
-    --bg-soft: #f1f5f9;
-    --surface: #ffffff;
-    --surface-2: #f8fafc;
-    --border: #e2e8f0;
-    --text: #0f172a;
-    --text-muted: #64748b;
-    --text-soft: #475569;
+    --primary: #6366f1; --primary-dark: #4f46e5; --primary-light: #a5b4fc;
+    --accent: #06b6d4; --accent-2: #f59e0b; --success: #10b981; --danger: #ef4444;
+    --bg: #f8fafc; --bg-soft: #f1f5f9; --surface: #ffffff; --surface-2: #f8fafc;
+    --border: #e2e8f0; --text: #0f172a; --text-muted: #64748b; --text-soft: #475569;
     --shadow-sm: 0 1px 3px rgba(15,23,42,0.06);
     --shadow-md: 0 4px 16px rgba(15,23,42,0.08);
     --shadow-lg: 0 12px 32px rgba(15,23,42,0.10);
     --shadow-xl: 0 24px 60px rgba(15,23,42,0.14);
-    --radius: 16px;
-    --radius-lg: 22px;
-    --radius-xl: 28px;
+    --radius: 16px; --radius-lg: 22px; --radius-xl: 28px;
     --grad-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,764 +32,302 @@ body {
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--bg); color: var(--text);
     line-height: 1.6; min-height: 100vh; overflow-x: hidden;
-    transition: background 0.4s, color 0.4s;
-    -webkit-font-smoothing: antialiased;
-    cursor: none;
+    transition: background 0.4s, color 0.4s; -webkit-font-smoothing: antialiased;
 }
-@media (max-width: 900px) { body { cursor: auto; } }
+@media (min-width: 901px) { body { cursor: none; } }
+body.dark {
+    --bg: #0a0e1a; --bg-soft: #0f1729; --surface: #131c31; --surface-2: #1a2540;
+    --border: #22304d; --text: #e8eef9; --text-muted: #8494b3; --text-soft: #b4c2dc;
+}
 
-/* ===== LOADER ===== */
-#loader {
-    position: fixed; inset: 0; z-index: 99999;
-    background: linear-gradient(135deg, #0a0e1a 0%, #1e1b4b 100%);
-    display: grid; place-items: center;
-    transition: opacity 0.6s, visibility 0.6s;
-}
+/* LOADER */
+#loader { position: fixed; inset: 0; z-index: 99999; background: linear-gradient(135deg, #0a0e1a 0%, #1e1b4b 100%); display: grid; place-items: center; transition: opacity 0.6s, visibility 0.6s; }
 #loader.hide { opacity: 0; visibility: hidden; }
-.loader-box { text-align: center; color: white; }
-.loader-icon {
-    font-size: 64px;
-    animation: bounceIcon 1.2s ease-in-out infinite;
-    margin-bottom: 20px;
-}
-@keyframes bounceIcon {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-}
-.loader-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 22px; font-weight: 700;
-    letter-spacing: -0.01em; margin-bottom: 24px;
-}
-.loader-track {
-    width: 240px; height: 6px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 999px; overflow: hidden; margin: 0 auto 12px;
-}
-.loader-bar {
-    height: 100%; width: 0%;
-    background: linear-gradient(90deg, #6366f1, #06b6d4, #f59e0b);
-    border-radius: 999px;
-    transition: width 0.3s;
-}
-.loader-pct {
-    font-size: 13px; opacity: 0.7; font-weight: 500;
-    letter-spacing: 1px;
-}
+.loader-icon { font-size: 64px; animation: bounceIcon 1.2s ease-in-out infinite; margin-bottom: 20px; }
+@keyframes bounceIcon { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+.loader-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700; color: white; margin-bottom: 24px; }
+.loader-track { width: 240px; height: 6px; background: rgba(255,255,255,0.15); border-radius: 999px; overflow: hidden; margin: 0 auto 12px; }
+.loader-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #06b6d4, #f59e0b); border-radius: 999px; transition: width 0.3s; }
+.loader-pct { font-size: 13px; opacity: 0.7; color: white; font-weight: 500; letter-spacing: 1px; }
 
-/* ===== SCROLL PROGRESS ===== */
-#scrollProgress {
-    position: fixed; top: 0; left: 0; height: 3px;
-    background: var(--grad-1); width: 0%; z-index: 9999;
-    box-shadow: 0 0 12px rgba(99,102,241,0.6);
-    transition: width 0.1s linear;
-}
+#scrollProgress { position: fixed; top: 0; left: 0; height: 3px; background: var(--grad-1); width: 0%; z-index: 9999; box-shadow: 0 0 12px rgba(99,102,241,0.6); }
 
-/* ===== CURSOR GLOW ===== */
-.cursor-dot {
-    position: fixed; width: 8px; height: 8px;
-    background: var(--primary); border-radius: 50%;
-    pointer-events: none; z-index: 99998;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background 0.2s;
-    mix-blend-mode: difference;
-}
-.cursor-ring {
-    position: fixed; width: 38px; height: 38px;
-    border: 2px solid var(--primary); border-radius: 50%;
-    pointer-events: none; z-index: 99997;
-    transform: translate(-50%, -50%);
-    transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s;
-    opacity: 0.5;
-}
-.cursor-ring.hover {
-    width: 60px; height: 60px;
-    border-color: var(--accent);
-}
+.cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); mix-blend-mode: difference; }
+.cursor-ring { position: fixed; width: 38px; height: 38px; border: 2px solid var(--primary); border-radius: 50%; pointer-events: none; z-index: 99997; transform: translate(-50%, -50%); opacity: 0.5; transition: width 0.25s, height 0.25s, border-color 0.25s; }
+.cursor-ring.hover { width: 60px; height: 60px; border-color: var(--accent); }
 @media (max-width: 900px) { .cursor-dot, .cursor-ring { display: none; } }
 
-/* ===== BG ===== */
-#particleCanvas {
-    position: fixed; inset: 0; z-index: -1;
-    pointer-events: none; opacity: 0.6;
-}
-.bg-mesh {
-    position: fixed; inset: 0; z-index: -2;
-    overflow: hidden; pointer-events: none;
-}
-.bg-mesh::before, .bg-mesh::after {
-    content: ''; position: absolute;
-    width: 700px; height: 700px; border-radius: 50%;
-    filter: blur(130px); opacity: 0.3;
-    animation: float 22s ease-in-out infinite;
-}
+#particleCanvas { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.6; }
+.bg-mesh { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+.bg-mesh::before, .bg-mesh::after { content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%; filter: blur(130px); opacity: 0.3; animation: float 22s ease-in-out infinite; }
 .bg-mesh::before { background: radial-gradient(circle, #6366f1 0%, transparent 70%); top: -200px; left: -200px; }
 .bg-mesh::after { background: radial-gradient(circle, #06b6d4 0%, transparent 70%); bottom: -200px; right: -200px; animation-delay: -11s; }
-@keyframes float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(90px, 70px) scale(1.15); }
-}
-body.dark { --bg: #0a0e1a; --bg-soft: #0f1729; --surface: #131c31; --surface-2: #1a2540; --border: #22304d; --text: #e8eef9; --text-muted: #8494b3; --text-soft: #b4c2dc; }
+@keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(90px,70px) scale(1.15); } }
 body.dark .bg-mesh::before, body.dark .bg-mesh::after { opacity: 0.2; }
 
-/* ===== LAYOUT ===== */
 .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
 
-/* ===== TOPBAR ===== */
-.topbar {
-    position: fixed; top: 12px; right: 16px; z-index: 100;
-    display: flex; gap: 8px; flex-wrap: wrap;
-}
-.top-btn {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--surface); border: 1px solid var(--border);
-    color: var(--text); cursor: pointer;
-    display: grid; place-items: center;
-    box-shadow: var(--shadow-md);
-    transition: 0.25s; font-size: 18px;
-}
+.topbar { position: fixed; top: 12px; right: 16px; z-index: 100; display: flex; gap: 8px; flex-wrap: wrap; }
+.top-btn { width: 44px; height: 44px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); color: var(--text); cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow-md); transition: 0.25s; font-size: 18px; }
 .top-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: var(--shadow-lg); }
 .top-btn.muted { opacity: 0.5; }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero {
-    position: relative;
-    background: var(--grad-1);
-    border-radius: var(--radius-xl);
-    padding: 56px 48px;
+    position: relative; background: var(--grad-1);
+    border-radius: var(--radius-xl); padding: 56px 48px;
     overflow: hidden; color: white;
-    box-shadow: var(--shadow-xl);
-    margin-bottom: 28px;
+    box-shadow: var(--shadow-xl); margin-bottom: 28px;
+    display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center;
 }
-.hero::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18) 0%, transparent 40%),
-        radial-gradient(circle at 15% 85%, rgba(255,255,255,0.12) 0%, transparent 50%);
-    pointer-events: none;
-}
-.hero::after {
-    content: ''; position: absolute; inset: -50%;
-    background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.09), transparent 30%);
-    animation: rotate 14s linear infinite;
-    pointer-events: none;
-}
+@media (max-width: 780px) { .hero { grid-template-columns: 1fr; text-align: center; padding: 40px 28px; } }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18) 0%, transparent 40%), radial-gradient(circle at 15% 85%, rgba(255,255,255,0.12) 0%, transparent 50%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; inset: -50%; background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.09), transparent 30%); animation: rotate 14s linear infinite; pointer-events: none; }
 @keyframes rotate { to { transform: rotate(360deg); } }
 .hero-content { position: relative; z-index: 2; }
-
-.hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.28);
-    padding: 6px 14px; border-radius: 999px;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 0.5px; text-transform: uppercase;
-    margin-bottom: 20px;
-}
-.hero-badge .dot {
-    width: 8px; height: 8px; background: #4ade80; border-radius: 50%;
-    box-shadow: 0 0 12px #4ade80;
-    animation: pulse 1.8s ease-in-out infinite;
-}
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.35); }
-}
-.hero h1 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(28px, 4.5vw, 46px);
-    font-weight: 800; line-height: 1.12;
-    letter-spacing: -0.02em; margin-bottom: 14px;
-    min-height: 2.4em;
-}
-.hero h1 .grad-text {
-    background: linear-gradient(90deg, #fef08a 0%, #fbbf24 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.hero p {
-    font-size: 16px; opacity: 0.94;
-    max-width: 640px; margin-bottom: 24px;
-}
-.cursor-bar {
-    display: inline-block; width: 3px; height: 1em;
-    background: #fbbf24; vertical-align: middle;
-    margin-left: 3px;
-    animation: blink 1s steps(2) infinite;
-}
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.28); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 20px; }
+.hero-badge .dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 12px #4ade80; animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.35); } }
+.hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(28px, 4.5vw, 46px); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 14px; min-height: 2.4em; }
+.hero h1 .grad-text { background: linear-gradient(90deg, #fef08a 0%, #fbbf24 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { font-size: 16px; opacity: 0.94; max-width: 640px; margin-bottom: 24px; }
+@media (max-width: 780px) { .hero p { margin-left: auto; margin-right: auto; } }
+.cursor-bar { display: inline-block; width: 3px; height: 1em; background: #fbbf24; vertical-align: middle; margin-left: 3px; animation: blink 1s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
+.hero-illust { position: relative; z-index: 2; width: 240px; height: 240px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25)); }
+@media (max-width: 780px) { .hero-illust { width: 180px; height: 180px; margin: 0 auto; } }
+
 .hero-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-.stat {
-    background: rgba(255,255,255,0.14);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.22);
-    border-radius: var(--radius); padding: 10px 18px;
-    display: flex; align-items: center; gap: 12px;
-    font-size: 13px; font-weight: 600;
-    transition: 0.25s;
-}
+@media (max-width: 780px) { .hero-stats { justify-content: center; } }
+.stat { background: rgba(255,255,255,0.14); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.22); border-radius: var(--radius); padding: 10px 18px; display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; transition: 0.25s; }
 .stat:hover { transform: translateY(-3px); background: rgba(255,255,255,0.22); }
-.stat-num {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 22px; font-weight: 800;
-}
+.stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; }
 
-/* hero illustration */
-.hero-illus {
-    position: absolute; right: 30px; bottom: -10px;
-    width: 280px; height: 280px;
-    opacity: 0.15; pointer-events: none;
-}
-@media (max-width: 720px) { .hero-illus { display: none; } }
-
-/* ===== TABS ===== */
-.tabs-wrap { position: sticky; top: 12px; z-index: 50; margin-bottom: 28px; }
-.tabs {
-    display: flex; gap: 4px; padding: 6px;
-    background: color-mix(in srgb, var(--surface) 82%, transparent);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+/* TAB HERO (ilustrasi per tab) */
+.tab-hero {
+    position: relative; border-radius: var(--radius-lg); overflow: hidden;
+    margin-bottom: 20px; padding: 32px 36px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    display: flex; align-items: center; gap: 26px;
     box-shadow: var(--shadow-md);
-    overflow-x: auto; scrollbar-width: none;
 }
+.tab-hero-icon { flex-shrink: 0; width: 100px; height: 100px; }
+.tab-hero-text h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px; font-weight: 800; margin-bottom: 8px;
+    color: var(--text); letter-spacing: -0.01em;
+}
+.tab-hero-text p { color: var(--text-soft); font-size: 14.5px; }
+@media (max-width: 640px) {
+    .tab-hero { flex-direction: column; text-align: center; padding: 26px 20px; }
+    .tab-hero-icon { width: 80px; height: 80px; }
+}
+
+/* PHOTO BG SECTION */
+.photo-section {
+    position: relative; border-radius: var(--radius-lg); overflow: hidden;
+    margin-bottom: 20px; min-height: 200px;
+    display: flex; align-items: center;
+    box-shadow: var(--shadow-md);
+}
+.photo-section::before {
+    content: ''; position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    filter: brightness(0.5);
+    z-index: 0;
+}
+.photo-section::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(99,102,241,0.75) 0%, rgba(6,182,212,0.6) 100%);
+    z-index: 1;
+}
+.photo-section-content {
+    position: relative; z-index: 2;
+    color: white; padding: 32px 36px;
+    max-width: 720px;
+}
+.photo-section-content h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px; font-weight: 800; margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.photo-section-content p {
+    font-size: 14.5px; opacity: 0.96;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    line-height: 1.7;
+}
+.photo-accounting::before { background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&q=80&auto=format&fit=crop'); }
+.photo-business::before { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80&auto=format&fit=crop'); }
+.photo-calc::before { background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1400&q=80&auto=format&fit=crop'); }
+.photo-docs::before { background-image: url('https://images.unsplash.com/photo-1554224311-beee415c201f?w=1400&q=80&auto=format&fit=crop'); }
+.photo-handshake::before { background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80&auto=format&fit=crop'); }
+
+/* TABS */
+.tabs-wrap { position: sticky; top: 12px; z-index: 50; margin-bottom: 28px; }
+.tabs { display: flex; gap: 4px; padding: 6px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--shadow-md); overflow-x: auto; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
-.tab-btn {
-    flex-shrink: 0; background: transparent; border: none;
-    padding: 10px 18px; font-family: inherit;
-    font-size: 13.5px; font-weight: 600;
-    color: var(--text-muted);
-    border-radius: 999px; cursor: pointer;
-    transition: 0.25s; display: flex; align-items: center;
-    gap: 6px; white-space: nowrap;
-}
-.tab-btn .tab-num {
-    width: 20px; height: 20px; border-radius: 50%;
-    background: var(--bg-soft); font-size: 11px; font-weight: 700;
-    display: grid; place-items: center; transition: 0.25s;
-}
+.tab-btn { flex-shrink: 0; background: transparent; border: none; padding: 10px 18px; font-family: inherit; font-size: 13.5px; font-weight: 600; color: var(--text-muted); border-radius: 999px; cursor: pointer; transition: 0.25s; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.tab-btn .tab-num { width: 20px; height: 20px; border-radius: 50%; background: var(--bg-soft); font-size: 11px; font-weight: 700; display: grid; place-items: center; transition: 0.25s; }
 .tab-btn:hover { color: var(--text); background: var(--bg-soft); }
-.tab-btn.active {
-    background: var(--grad-1); color: white;
-    box-shadow: 0 6px 18px rgba(99,102,241,0.35);
-}
+.tab-btn.active { background: var(--grad-1); color: white; box-shadow: 0 6px 18px rgba(99,102,241,0.35); }
 .tab-btn.active .tab-num { background: rgba(255,255,255,0.28); color: white; }
 
 .tab-content { display: none; }
 .tab-content.active { display: block; }
 
-/* ===== CARDS ===== */
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 26px 28px;
-    margin-bottom: 18px;
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.3s, transform 0.3s;
-    position: relative; overflow: hidden;
-    transform-style: preserve-3d;
-}
-.card::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; width: 4px; height: 100%;
-    background: var(--grad-1); opacity: 0;
-    transition: 0.3s;
-}
+/* CARDS */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 28px; margin-bottom: 18px; box-shadow: var(--shadow-sm); transition: box-shadow 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--grad-1); opacity: 0; transition: 0.3s; }
 .card:hover::before { opacity: 1; }
 .card:hover { box-shadow: var(--shadow-md); }
 .card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-.card-icon {
-    width: 46px; height: 46px; border-radius: 12px;
-    background: var(--grad-1); display: grid; place-items: center;
-    color: white; box-shadow: 0 6px 16px rgba(99,102,241,0.3);
-    flex-shrink: 0;
-}
+.card-icon { width: 46px; height: 46px; border-radius: 12px; background: var(--grad-1); display: grid; place-items: center; color: white; box-shadow: 0 6px 16px rgba(99,102,241,0.3); flex-shrink: 0; }
 .card-icon svg { width: 22px; height: 22px; }
-.card h3 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 20px; font-weight: 700;
-    color: var(--text); letter-spacing: -0.01em;
-}
+.card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
 .card p, .card ul, .card ol { color: var(--text-soft); line-height: 1.75; }
 .card ul, .card ol { padding-left: 22px; }
 .card li { margin-bottom: 6px; }
 
-.highlight {
-    background: linear-gradient(120deg, #eef2ff 0%, #e0e7ff 100%);
-    color: var(--primary-dark);
-    padding: 2px 10px; border-radius: 6px;
-    font-weight: 600; font-size: 0.95em;
-}
-body.dark .highlight {
-    background: linear-gradient(120deg, #1e1b4b 0%, #312e81 100%);
-    color: #c7d2fe;
-}
-.quote-box {
-    background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
-    border-left: 4px solid var(--primary);
-    padding: 18px 22px 18px 46px;
-    border-radius: var(--radius);
-    margin: 14px 0; font-style: italic;
-    color: var(--text); position: relative;
-}
+.highlight { background: linear-gradient(120deg, #eef2ff 0%, #e0e7ff 100%); color: var(--primary-dark); padding: 2px 10px; border-radius: 6px; font-weight: 600; font-size: 0.95em; }
+body.dark .highlight { background: linear-gradient(120deg, #1e1b4b 0%, #312e81 100%); color: #c7d2fe; }
+.quote-box { background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%); border-left: 4px solid var(--primary); padding: 18px 22px 18px 46px; border-radius: var(--radius); margin: 14px 0; font-style: italic; color: var(--text); position: relative; }
 body.dark .quote-box { background: linear-gradient(135deg, #1a1f3a 0%, #1e1b4b 100%); }
-.quote-box::before {
-    content: '"'; position: absolute;
-    top: 4px; left: 14px;
-    font-family: Georgia, serif;
-    font-size: 60px; color: var(--primary-light);
-    line-height: 1; opacity: 0.5;
-}
+.quote-box::before { content: '"'; position: absolute; top: 4px; left: 14px; font-family: Georgia, serif; font-size: 60px; color: var(--primary-light); line-height: 1; opacity: 0.5; }
 
-/* ===== FLIP CARDS ===== */
-.flip-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px; margin-top: 16px;
-}
+/* FLIP CARDS */
+.flip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
 .flip-card { perspective: 1200px; height: 210px; cursor: pointer; }
-.flip-inner {
-    position: relative; width: 100%; height: 100%;
-    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-    transform-style: preserve-3d;
-}
+.flip-inner { position: relative; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
 .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
-.flip-front, .flip-back {
-    position: absolute; inset: 0;
-    border-radius: var(--radius-lg);
-    padding: 22px; display: flex;
-    flex-direction: column; justify-content: center;
-    backface-visibility: hidden; -webkit-backface-visibility: hidden;
-    box-shadow: var(--shadow-md);
-}
-.flip-front {
-    background: var(--grad-1); color: white;
-    align-items: center; text-align: center;
-}
-.flip-front .num {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 52px; font-weight: 800; line-height: 1;
-    opacity: 0.9; margin-bottom: 8px;
-}
-.flip-front .title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700; font-size: 17px;
-}
-.flip-front .hint {
-    margin-top: 12px; font-size: 11px;
-    opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;
-}
-.flip-back {
-    background: var(--surface-2); border: 1px solid var(--border);
-    color: var(--text-soft); transform: rotateY(180deg);
-    font-size: 13.5px; line-height: 1.6;
-}
+.flip-front, .flip-back { position: absolute; inset: 0; border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column; justify-content: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: var(--shadow-md); }
+.flip-front { background: var(--grad-1); color: white; align-items: center; text-align: center; }
+.flip-front .num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 52px; font-weight: 800; line-height: 1; opacity: 0.9; margin-bottom: 8px; }
+.flip-front .title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px; }
+.flip-front .hint { margin-top: 12px; font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+.flip-back { background: var(--surface-2); border: 1px solid var(--border); color: var(--text-soft); transform: rotateY(180deg); font-size: 13.5px; line-height: 1.6; }
 
-/* ===== IMAGE SLIDER ===== */
-.slider {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    margin-bottom: 18px;
-    height: 280px;
-    box-shadow: var(--shadow-sm);
-}
-.slide {
-    position: absolute; inset: 0;
-    display: grid; place-items: center;
-    opacity: 0; transition: opacity 0.7s, transform 0.7s;
-    padding: 30px;
-    transform: scale(1.05);
-}
+/* SLIDER */
+.slider { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--surface-2); border: 1px solid var(--border); margin-bottom: 18px; height: 280px; box-shadow: var(--shadow-sm); }
+.slide { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transition: opacity 0.7s, transform 0.7s; padding: 30px; transform: scale(1.05); }
 .slide.active { opacity: 1; transform: scale(1); }
-.slide-content {
-    display: flex; align-items: center; gap: 30px;
-    max-width: 100%;
-}
+.slide-content { display: flex; align-items: center; gap: 30px; max-width: 100%; }
 .slide-illus { flex-shrink: 0; }
-.slide-text h4 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 22px; margin-bottom: 8px; color: var(--text);
-}
-.slide-text p {
-    color: var(--text-soft); font-size: 14.5px;
-    line-height: 1.7; max-width: 460px;
-}
-@media (max-width: 720px) {
-    .slider { height: 380px; }
-    .slide-content { flex-direction: column; text-align: center; gap: 16px; }
-}
-.slider-dots {
-    position: absolute; bottom: 16px; left: 50%;
-    transform: translateX(-50%);
-    display: flex; gap: 8px; z-index: 3;
-}
-.slider-dots span {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: rgba(0,0,0,0.2); cursor: pointer;
-    transition: 0.3s;
-}
+.slide-text h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; margin-bottom: 8px; color: var(--text); }
+.slide-text p { color: var(--text-soft); font-size: 14.5px; line-height: 1.7; max-width: 460px; }
+@media (max-width: 720px) { .slider { height: 400px; } .slide-content { flex-direction: column; text-align: center; gap: 16px; } }
+.slider-dots { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 3; }
+.slider-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.2); cursor: pointer; transition: 0.3s; }
 body.dark .slider-dots span { background: rgba(255,255,255,0.25); }
-.slider-dots span.active {
-    background: var(--primary); width: 28px; border-radius: 999px;
-}
-.slider-nav {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    width: 40px; height: 40px; border-radius: 50%;
-    background: var(--surface); border: 1px solid var(--border);
-    color: var(--text); cursor: pointer;
-    display: grid; place-items: center;
-    box-shadow: var(--shadow-md); z-index: 3;
-    transition: 0.2s;
-}
+.slider-dots span.active { background: var(--primary); width: 28px; border-radius: 999px; }
+.slider-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); color: var(--text); cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow-md); z-index: 3; transition: 0.2s; }
 .slider-nav:hover { transform: translateY(-50%) scale(1.1); }
 .slider-nav.prev { left: 14px; }
 .slider-nav.next { right: 14px; }
 
-/* ===== DRAG DROP ===== */
-.dd-section {
-    background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 22px; margin-top: 16px;
-}
+/* DRAG DROP */
+.dd-section { background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; margin-top: 16px; }
 body.dark .dd-section { background: linear-gradient(135deg, #131c31 0%, #1a2540 100%); }
-.dd-section h4 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 17px; margin-bottom: 6px;
-    display: flex; align-items: center; gap: 8px;
-}
+.dd-section h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
 .dd-hint { font-size: 13.5px; color: var(--text-muted); margin-bottom: 14px; }
-.dd-items {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    padding: 16px; background: var(--surface);
-    border: 2px dashed var(--border);
-    border-radius: var(--radius);
-    min-height: 70px; margin-bottom: 16px;
-}
-.dd-item {
-    background: var(--surface);
-    border: 1.5px solid var(--border);
-    padding: 9px 16px; border-radius: 999px;
-    font-weight: 500; font-size: 13.5px;
-    color: var(--text); cursor: grab;
-    user-select: none; box-shadow: var(--shadow-sm);
-    transition: 0.2s;
-}
-.dd-item:hover {
-    border-color: var(--primary);
-    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(99,102,241,0.15);
-}
+.dd-items { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px; background: var(--surface); border: 2px dashed var(--border); border-radius: var(--radius); min-height: 70px; margin-bottom: 16px; }
+.dd-item { background: var(--surface); border: 1.5px solid var(--border); padding: 9px 16px; border-radius: 999px; font-weight: 500; font-size: 13.5px; color: var(--text); cursor: grab; user-select: none; box-shadow: var(--shadow-sm); transition: 0.2s; }
+.dd-item:hover { border-color: var(--primary); background: linear-gradient(135deg, #eef2ff, #f5f3ff); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(99,102,241,0.15); }
 body.dark .dd-item:hover { background: linear-gradient(135deg, #1e1b4b, #312e81); }
 .dd-item.dragging { opacity: 0.4; transform: scale(0.95); }
 .dd-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 640px) { .dd-columns { grid-template-columns: 1fr; } }
-.dd-col {
-    background: var(--surface);
-    border: 2px dashed var(--border);
-    border-radius: var(--radius);
-    padding: 16px; min-height: 150px;
-    transition: 0.25s;
-}
-.dd-col.drag-over {
-    border-color: var(--primary);
-    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
-    transform: scale(1.02);
-}
+.dd-col { background: var(--surface); border: 2px dashed var(--border); border-radius: var(--radius); padding: 16px; min-height: 150px; transition: 0.25s; }
+.dd-col.drag-over { border-color: var(--primary); background: linear-gradient(135deg, #eef2ff, #f5f3ff); transform: scale(1.02); }
 body.dark .dd-col.drag-over { background: linear-gradient(135deg, #1e1b4b, #312e81); }
-.dd-col h4 {
-    text-align: center; font-size: 14px;
-    margin-bottom: 12px;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-}
-.dd-col .dd-item {
-    margin: 5px 4px; cursor: default;
-    display: inline-block; font-size: 12.5px; padding: 7px 13px;
-}
-.dd-col .dd-item.dropped {
-    border-color: var(--primary);
-    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-    color: var(--primary-dark); font-weight: 600;
-}
-body.dark .dd-col .dd-item.dropped {
-    background: linear-gradient(135deg, #1e1b4b, #312e81); color: #c7d2fe;
-}
-.dd-placeholder {
-    color: var(--text-muted); font-size: 13px;
-    text-align: center; padding: 30px 10px;
-    font-style: italic;
-}
+.dd-col h4 { text-align: center; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.dd-col .dd-item { margin: 5px 4px; cursor: default; display: inline-block; font-size: 12.5px; padding: 7px 13px; }
+.dd-col .dd-item.dropped { border-color: var(--primary); background: linear-gradient(135deg, #eef2ff, #e0e7ff); color: var(--primary-dark); font-weight: 600; }
+body.dark .dd-col .dd-item.dropped { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #c7d2fe; }
+.dd-placeholder { color: var(--text-muted); font-size: 13px; text-align: center; padding: 30px 10px; font-style: italic; }
 
-/* ===== BUTTONS ===== */
-.btn {
-    background: var(--grad-1); color: white; border: none;
-    padding: 10px 22px; border-radius: 999px;
-    font-family: inherit; font-size: 13.5px; font-weight: 600;
-    cursor: pointer; transition: 0.25s;
-    box-shadow: 0 4px 14px rgba(99,102,241,0.3);
-    display: inline-flex; align-items: center; gap: 8px;
-    position: relative; overflow: hidden;
-}
+/* BUTTONS */
+.btn { background: var(--grad-1); color: white; border: none; padding: 10px 22px; border-radius: 999px; font-family: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: 0.25s; box-shadow: 0 4px 14px rgba(99,102,241,0.3); display: inline-flex; align-items: center; gap: 8px; position: relative; overflow: hidden; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99,102,241,0.4); }
 .btn-ghost { background: var(--bg-soft); color: var(--text-soft); box-shadow: none; }
 .btn-ghost:hover { background: var(--border); box-shadow: none; }
 .btn-row { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
-.btn .ripple {
-    position: absolute; border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-    transform: scale(0);
-    animation: ripple 0.6s ease-out;
-    pointer-events: none;
-}
+.btn .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.5); transform: scale(0); animation: ripple 0.6s ease-out; pointer-events: none; }
 @keyframes ripple { to { transform: scale(4); opacity: 0; } }
 
-.dd-feedback {
-    margin-top: 12px; padding: 12px 16px;
-    border-radius: var(--radius);
-    font-weight: 600; font-size: 14px;
-    display: none;
-}
-.dd-feedback.show { display: block; animation: fadeSlide 0.4s; }
-.dd-feedback.ok {
-    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-    color: #065f46; border-left: 4px solid var(--success);
-}
-.dd-feedback.warn {
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
-    color: #92400e; border-left: 4px solid var(--accent-2);
-}
+.dd-feedback { margin-top: 12px; padding: 12px 16px; border-radius: var(--radius); font-weight: 600; font-size: 14px; display: none; }
+.dd-feedback.show { display: block; }
+.dd-feedback.ok { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #065f46; border-left: 4px solid var(--success); }
+.dd-feedback.warn { background: linear-gradient(135deg, #fef3c7, #fde68a); color: #92400e; border-left: 4px solid var(--accent-2); }
 body.dark .dd-feedback.ok { background: linear-gradient(135deg, #064e3b, #065f46); color: #a7f3d0; }
 body.dark .dd-feedback.warn { background: linear-gradient(135deg, #78350f, #92400e); color: #fde68a; }
 
-/* ===== SIMULASI ===== */
-.simulasi {
-    background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 24px 26px; margin-top: 16px;
-}
+/* SIMULASI */
+.simulasi { background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 26px; margin-top: 16px; }
 body.dark .simulasi { background: linear-gradient(135deg, #131c31 0%, #1e1b4b 100%); }
-.simulasi h4 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 17px; margin-bottom: 16px;
-    display: flex; align-items: center; gap: 10px;
-}
-.simulasi label {
-    display: block; margin: 14px 0 6px;
-    font-weight: 600; font-size: 13.5px;
-    color: var(--text-soft);
-}
-.simulasi input[type="number"] {
-    width: 100%; padding: 12px 16px;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    font-family: inherit; font-size: 15px; font-weight: 600;
-    background: var(--surface); color: var(--text);
-    transition: 0.2s;
-}
-.simulasi input[type="number"]:focus {
-    outline: none; border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
-}
-.simulasi input[type="range"] {
-    width: 100%; -webkit-appearance: none; appearance: none;
-    height: 8px; border-radius: 999px;
-    background: var(--border); outline: none; margin-top: 8px;
-}
-.simulasi input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; width: 24px; height: 24px;
-    border-radius: 50%; background: var(--grad-1);
-    cursor: pointer; box-shadow: 0 4px 12px rgba(99,102,241,0.4);
-    border: 3px solid white;
-}
-.persen-badge {
-    display: inline-block; background: var(--grad-1); color: white;
-    padding: 4px 14px; border-radius: 999px;
-    font-weight: 700; font-size: 14px; margin-top: 10px;
-}
-.result-box {
-    background: var(--surface); padding: 20px 22px;
-    border-radius: var(--radius); margin-top: 20px;
-    border-left: 5px solid var(--success);
-    box-shadow: var(--shadow-sm);
-}
-.result-box .label {
-    font-size: 12px; font-weight: 700;
-    color: var(--text-muted); text-transform: uppercase;
-    letter-spacing: 1px; margin-bottom: 6px;
-}
-.result-box .value {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 30px; font-weight: 800;
-    color: var(--success); letter-spacing: -0.02em;
-}
-.chart-wrap {
-    position: relative;
-    height: 260px;
-    margin-top: 20px;
-}
+.simulasi h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.simulasi label { display: block; margin: 14px 0 6px; font-weight: 600; font-size: 13.5px; color: var(--text-soft); }
+.simulasi input[type="number"] { width: 100%; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: var(--radius); font-family: inherit; font-size: 15px; font-weight: 600; background: var(--surface); color: var(--text); transition: 0.2s; }
+.simulasi input[type="number"]:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(99,102,241,0.12); }
+.simulasi input[type="range"] { width: 100%; -webkit-appearance: none; appearance: none; height: 8px; border-radius: 999px; background: var(--border); outline: none; margin-top: 8px; }
+.simulasi input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--grad-1); cursor: pointer; box-shadow: 0 4px 12px rgba(99,102,241,0.4); border: 3px solid white; }
+.persen-badge { display: inline-block; background: var(--grad-1); color: white; padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; margin-top: 10px; }
+.result-box { background: var(--surface); padding: 20px 22px; border-radius: var(--radius); margin-top: 20px; border-left: 5px solid var(--success); box-shadow: var(--shadow-sm); }
+.result-box .label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.result-box .value { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; color: var(--success); letter-spacing: -0.02em; }
+.chart-wrap { position: relative; height: 260px; margin-top: 20px; }
 
-/* ===== JURNAL ===== */
-.jurnal {
-    background: var(--surface-2); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 16px 20px;
-    margin-top: 14px;
-    font-family: 'Courier New', monospace;
-    font-size: 13.5px; line-height: 1.9;
-}
-.jurnal strong {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--primary); display: block;
-    margin-bottom: 6px; font-size: 13px;
-    text-transform: uppercase; letter-spacing: 0.5px;
-}
+.jurnal { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-top: 14px; font-family: 'Courier New', monospace; font-size: 13.5px; line-height: 1.9; }
+.jurnal strong { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--primary); display: block; margin-bottom: 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
 .jurnal .row { display: flex; justify-content: space-between; gap: 12px; }
 .jurnal .cr { padding-left: 24px; color: var(--text-muted); }
 
-/* ===== QUIZ ===== */
-.quiz-header {
-    display: flex; align-items: center; gap: 24px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 22px 26px;
-    margin-bottom: 20px; box-shadow: var(--shadow-sm);
-}
+/* QUIZ */
+.quiz-header { display: flex; align-items: center; gap: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 26px; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
 .progress-ring { position: relative; width: 92px; height: 92px; flex-shrink: 0; }
 .progress-ring svg { transform: rotate(-90deg); }
 .progress-ring .ring-bg { fill: none; stroke: var(--border); stroke-width: 8; }
-.progress-ring .ring-fg {
-    fill: none; stroke: url(#gradRing);
-    stroke-width: 8; stroke-linecap: round;
-    stroke-dasharray: 226; stroke-dashoffset: 226;
-    transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-.progress-ring .score-text {
-    position: absolute; inset: 0;
-    display: grid; place-items: center;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800; font-size: 22px; color: var(--text);
-}
-.quiz-header-info h3 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 20px; margin-bottom: 4px;
-}
+.progress-ring .ring-fg { fill: none; stroke: url(#gradRing); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 226; stroke-dashoffset: 226; transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); }
+.progress-ring .score-text { position: absolute; inset: 0; display: grid; place-items: center; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 22px; color: var(--text); }
+.quiz-header-info h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; margin-bottom: 4px; }
 .quiz-header-info p { color: var(--text-muted); font-size: 13.5px; }
 @media (max-width: 520px) { .quiz-header { flex-direction: column; text-align: center; gap: 14px; } }
 
-.quiz-question {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 22px 24px;
-    margin-bottom: 14px; box-shadow: var(--shadow-sm);
-    transition: 0.3s;
-}
+.quiz-question { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 24px; margin-bottom: 14px; box-shadow: var(--shadow-sm); transition: 0.3s; }
 .quiz-question.correct { border-color: #86efac; background: linear-gradient(135deg, var(--surface), #f0fdf4); }
 .quiz-question.wrong { border-color: #fca5a5; background: linear-gradient(135deg, var(--surface), #fef2f2); }
 body.dark .quiz-question.correct { background: linear-gradient(135deg, var(--surface), #052e16); }
 body.dark .quiz-question.wrong { background: linear-gradient(135deg, var(--surface), #450a0a); }
-.quiz-question .q-num {
-    display: inline-block; background: var(--grad-1); color: white;
-    font-weight: 700; font-size: 12px; padding: 3px 10px;
-    border-radius: 999px; margin-bottom: 10px;
-}
-.quiz-question p.q-text {
-    font-weight: 600; font-size: 16px;
-    color: var(--text); margin-bottom: 14px; line-height: 1.5;
-}
+.quiz-question .q-num { display: inline-block; background: var(--grad-1); color: white; font-weight: 700; font-size: 12px; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+.quiz-question p.q-text { font-weight: 600; font-size: 16px; color: var(--text); margin-bottom: 14px; line-height: 1.5; }
 .quiz-options { display: flex; flex-direction: column; gap: 8px; }
-.quiz-options label {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 16px; background: var(--surface-2);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius); cursor: pointer;
-    transition: 0.2s; font-size: 14px;
-    color: var(--text-soft); font-weight: 500;
-}
-.quiz-options label:hover {
-    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
-    border-color: var(--primary-light);
-    transform: translateX(4px);
-}
+.quiz-options label { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--surface-2); border: 1.5px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: 0.2s; font-size: 14px; color: var(--text-soft); font-weight: 500; }
+.quiz-options label:hover { background: linear-gradient(135deg, #eef2ff, #f5f3ff); border-color: var(--primary-light); transform: translateX(4px); }
 body.dark .quiz-options label:hover { background: linear-gradient(135deg, #1e1b4b, #312e81); }
-.quiz-options input[type="radio"] {
-    appearance: none; -webkit-appearance: none;
-    width: 20px; height: 20px;
-    border: 2px solid var(--border); border-radius: 50%;
-    cursor: pointer; position: relative;
-    flex-shrink: 0; transition: 0.2s;
-    background: var(--surface);
-}
-.quiz-options input[type="radio"]:checked {
-    border-color: var(--primary);
-    background: var(--grad-1);
-    box-shadow: 0 0 0 4px rgba(99,102,241,0.15);
-}
-.quiz-options input[type="radio"]:checked::after {
-    content: ''; position: absolute;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 8px; height: 8px;
-    background: white; border-radius: 50%;
-}
-.quiz-options label:has(input:checked) {
-    border-color: var(--primary);
-    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-    color: var(--primary-dark); font-weight: 600;
-}
-body.dark .quiz-options label:has(input:checked) {
-    background: linear-gradient(135deg, #1e1b4b, #312e81); color: #c7d2fe;
-}
-.quiz-feedback {
-    margin-top: 12px; padding: 12px 16px;
-    border-radius: var(--radius); font-weight: 600;
-    font-size: 13.5px; display: none;
-    align-items: center; gap: 8px;
-}
+.quiz-options input[type="radio"] { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 50%; cursor: pointer; position: relative; flex-shrink: 0; transition: 0.2s; background: var(--surface); }
+.quiz-options input[type="radio"]:checked { border-color: var(--primary); background: var(--grad-1); box-shadow: 0 0 0 4px rgba(99,102,241,0.15); }
+.quiz-options input[type="radio"]:checked::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8px; height: 8px; background: white; border-radius: 50%; }
+.quiz-options label:has(input:checked) { border-color: var(--primary); background: linear-gradient(135deg, #eef2ff, #e0e7ff); color: var(--primary-dark); font-weight: 600; }
+body.dark .quiz-options label:has(input:checked) { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #c7d2fe; }
+.quiz-feedback { margin-top: 12px; padding: 12px 16px; border-radius: var(--radius); font-weight: 600; font-size: 13.5px; display: none; align-items: center; gap: 8px; }
 .quiz-feedback.show { display: flex; }
 .quiz-feedback.benar { background: #d1fae5; color: #065f46; }
 .quiz-feedback.salah { background: #fee2e2; color: #991b1b; }
 body.dark .quiz-feedback.benar { background: #064e3b; color: #a7f3d0; }
 body.dark .quiz-feedback.salah { background: #7f1d1d; color: #fecaca; }
 
-/* ===== FOOTER ===== */
-footer {
-    margin-top: 40px; text-align: center;
-    padding: 28px 20px; color: var(--text-muted);
-    font-size: 13px; border-top: 1px solid var(--border);
-}
+footer { margin-top: 40px; text-align: center; padding: 28px 20px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); }
 footer .heart { color: var(--danger); }
-
-/* ===== PRESENTATION MODE ===== */
-body.presentation .topbar { display: none; }
-body.presentation .hero { display: none; }
-body.presentation .tabs-wrap { display: none; }
-body.presentation .card { page-break-inside: avoid; }
-
-/* ===== CONFETTI ===== */
-#confettiCanvas {
-    position: fixed; inset: 0;
-    pointer-events: none; z-index: 9998;
-}
-
-/* ===== SCROLL REVEAL fallback ===== */
-.reveal { opacity: 0; transform: translateY(24px); transition: 0.8s; }
-.reveal.in { opacity: 1; transform: translateY(0); }
-
-@media print {
-    .topbar, .tabs-wrap, #scrollProgress, #particleCanvas, .bg-mesh, .hero-tools, .cursor-dot, .cursor-ring { display: none !important; }
-    .card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
-}
+#confettiCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 9998; }
+body.presentation .topbar, body.presentation .hero, body.presentation .tabs-wrap { display: none; }
+@media print { .topbar, .tabs-wrap, #scrollProgress, #particleCanvas, .bg-mesh, .cursor-dot, .cursor-ring { display: none !important; } }
 </style>
 </head>
 <body>
 
-<!-- LOADER -->
 <div id="loader">
-    <div class="loader-box">
+    <div style="text-align:center;">
         <div class="loader-icon">📘</div>
         <div class="loader-title">Menyiapkan Pembelajaran…</div>
         <div class="loader-track"><div class="loader-bar" id="loaderBar"></div></div>
@@ -818,9 +343,9 @@ body.presentation .card { page-break-inside: avoid; }
 <canvas id="confettiCanvas"></canvas>
 
 <div class="topbar">
-    <button class="top-btn" id="soundToggle" title="Suara On/Off">🔊</button>
-    <button class="top-btn" id="presentBtn" title="Mode Presentasi">🎤</button>
-    <button class="top-btn" id="themeToggle" title="Ganti Tema">🌙</button>
+    <button class="top-btn" id="soundToggle" title="Suara">🔊</button>
+    <button class="top-btn" id="presentBtn" title="Presentasi">🎤</button>
+    <button class="top-btn" id="themeToggle" title="Tema">🌙</button>
     <button class="top-btn" id="shareBtn" title="Bagikan">📤</button>
 </div>
 
@@ -828,27 +353,61 @@ body.presentation .card { page-break-inside: avoid; }
 
     <!-- HERO -->
     <section class="hero">
-        <svg class="hero-illus" viewBox="0 0 200 200" fill="none" stroke="white" stroke-width="1.5">
-            <circle cx="100" cy="100" r="80" stroke-dasharray="4 6">
-                <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="40s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="100" cy="100" r="60"/>
-            <path d="M60 100 L100 60 L140 100 L100 140 Z"/>
-            <circle cx="100" cy="100" r="15" fill="white" opacity="0.4"/>
-        </svg>
         <div class="hero-content">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                SAK EP · PSAK 9 · 26 · 73
-            </div>
+            <div class="hero-badge"><span class="dot"></span> SAK EP · PSAK 9 · 26 · 73</div>
             <h1><span id="typedTitle"></span><span class="cursor-bar"></span></h1>
-            <p>Kuasai konsep liabilitas dengan animasi interaktif, simulasi, dan kuis berhadiah. Untuk siswa SMK Akuntansi & mahasiswa.</p>
+            <p>Kuasai konsep liabilitas dengan ilustrasi, animasi, dan kuis interaktif. Untuk siswa SMK Akuntansi & mahasiswa.</p>
             <div class="hero-stats">
                 <div class="stat"><span style="font-size:22px;">📚</span><div><div class="stat-num" data-count="7">0</div><div style="opacity:0.85; font-weight:500; font-size:11px;">Topik</div></div></div>
                 <div class="stat"><span style="font-size:22px;">🧩</span><div><div class="stat-num" data-count="3">0</div><div style="opacity:0.85; font-weight:500; font-size:11px;">Latihan</div></div></div>
                 <div class="stat"><span style="font-size:22px;">❓</span><div><div class="stat-num" data-count="5">0</div><div style="opacity:0.85; font-weight:500; font-size:11px;">Soal</div></div></div>
-                <div class="stat"><span style="font-size:22px;">🏆</span><div><div class="stat-num" data-count="100">0</div><div style="opacity:0.85; font-weight:500; font-size:11px;">% Gratis</div></div></div>
             </div>
+        </div>
+        <div class="hero-illust">
+            <!-- Animated SVG: Buku + Uang + Chart (menggantikan Lottie, lebih andal) -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#fef08a"/>
+                        <stop offset="100%" stop-color="#fbbf24"/>
+                    </linearGradient>
+                </defs>
+                <!-- buku -->
+                <g transform="translate(60, 110)">
+                    <rect x="-35" y="-15" width="70" height="55" rx="4" fill="none" stroke="white" stroke-width="2.5" opacity="0.95"/>
+                    <line x1="0" y1="-15" x2="0" y2="40" stroke="white" stroke-width="2" opacity="0.6"/>
+                    <line x1="-30" y1="-5" x2="-5" y2="-5" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                    <line x1="-30" y1="5" x2="-5" y2="5" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                    <line x1="-30" y1="15" x2="-5" y2="15" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                    <line x1="5" y1="-5" x2="30" y2="-5" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                    <line x1="5" y1="5" x2="30" y2="5" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                    <line x1="5" y1="15" x2="30" y2="15" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                </g>
+                <!-- koin bergerak -->
+                <g>
+                    <circle cx="130" cy="70" r="22" fill="url(#heroGrad)" opacity="0.9"/>
+                    <text x="130" y="76" text-anchor="middle" font-size="18" font-weight="800" fill="#78350f">Rp</text>
+                </g>
+                <!-- bar chart naik -->
+                <g transform="translate(60, 40)">
+                    <rect x="-8" y="0" width="8" height="20" fill="white" opacity="0.7" rx="2">
+                        <animate attributeName="height" values="10;25;10" dur="2.4s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="10;0;10" dur="2.4s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="4" y="10" width="8" height="10" fill="white" opacity="0.75" rx="2">
+                        <animate attributeName="height" values="15;30;15" dur="2.4s" repeatCount="indefinite" begin="0.3s"/>
+                        <animate attributeName="y" values="-5;0;-5" dur="2.4s" repeatCount="indefinite" begin="0.3s"/>
+                    </rect>
+                    <rect x="16" y="5" width="8" height="15" fill="white" opacity="0.85" rx="2">
+                        <animate attributeName="height" values="20;35;20" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
+                        <animate attributeName="y" values="-5;0;-5" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
+                    </rect>
+                </g>
+                <!-- orbit ring -->
+                <circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="1" opacity="0.25" stroke-dasharray="3 6">
+                    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="40s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
         </div>
     </section>
 
@@ -867,58 +426,77 @@ body.presentation .card { page-break-inside: avoid; }
 
     <!-- ===== TAB 1 ===== -->
     <div id="tab1" class="tab-content active">
-        <!-- Slider -->
+        <!-- Tab Hero: Ilustrasi SVG -->
+        <div class="tab-hero" data-aos="fade-up">
+            <svg class="tab-hero-icon" viewBox="0 0 100 100">
+                <defs><linearGradient id="th1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="45" fill="url(#th1)" opacity="0.15">
+                    <animate attributeName="r" values="42;48;42" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <path d="M30 25 L70 25 L70 80 L50 70 L30 80 Z" fill="none" stroke="url(#th1)" stroke-width="3" stroke-linejoin="round"/>
+                <line x1="38" y1="40" x2="62" y2="40" stroke="url(#th1)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="38" y1="50" x2="62" y2="50" stroke="url(#th1)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="38" y1="60" x2="55" y2="60" stroke="url(#th1)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div class="tab-hero-text">
+                <h2>Pengertian Kewajiban</h2>
+                <p>Memahami definisi, karakteristik, dan momen pengakuan liabilitas dalam akuntansi modern.</p>
+            </div>
+        </div>
+
+        <!-- Photo section -->
+        <div class="photo-section photo-accounting" data-aos="fade-up" style="margin-bottom:18px;">
+            <div class="photo-section-content">
+                <h3>📊 Kewajiban dalam Praktik Nyata</h3>
+                <p>Setiap entitas bisnis memiliki kewajiban — dari utang dagang hingga obligasi jangka panjang. Memahami karakteristiknya membantu dalam penyusunan laporan keuangan yang akurat.</p>
+            </div>
+        </div>
+
+        <div class="card" data-aos="fade-up">
+            <div class="card-header">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                <h3>Definisi Resmi</h3>
+            </div>
+            <p>Sesuai <strong>PSAK No. 9</strong> &amp; <strong>SAK EP Bab 22</strong>:</p>
+            <div class="quote-box">Kewajiban kini entitas yang timbul dari peristiwa masa lalu, yang penyelesaiannya dapat mengakibatkan arus keluar sumber daya entitas yang mengandung manfaat ekonomi.</div>
+        </div>
+
+        <!-- Slider ilustrasi -->
         <div class="slider" data-aos="fade-up">
             <div class="slide active">
                 <div class="slide-content">
                     <svg class="slide-illus" width="150" height="150" viewBox="0 0 120 120">
                         <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-                        <circle cx="60" cy="60" r="45" fill="url(#g1)" opacity="0.15">
-                            <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite"/>
-                        </circle>
+                        <circle cx="60" cy="60" r="45" fill="url(#g1)" opacity="0.15"><animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite"/></circle>
                         <path d="M40 45 h40 v35 h-40 z" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linejoin="round"/>
                         <line x1="40" y1="55" x2="80" y2="55" stroke="#6366f1" stroke-width="2.5"/>
                         <circle cx="60" cy="68" r="4" fill="#06b6d4"/>
                         <text x="60" y="30" text-anchor="middle" font-size="10" fill="#6366f1" font-weight="700">BUKU BESAR</text>
                     </svg>
-                    <div class="slide-text">
-                        <h4>Apa itu Kewajiban?</h4>
-                        <p>Kewajiban (liabilitas) adalah utang yang harus dibayar entitas di masa depan akibat transaksi masa lalu.</p>
-                    </div>
+                    <div class="slide-text"><h4>Apa itu Kewajiban?</h4><p>Kewajiban (liabilitas) adalah utang yang harus dibayar entitas di masa depan akibat transaksi masa lalu.</p></div>
                 </div>
             </div>
             <div class="slide">
                 <div class="slide-content">
                     <svg class="slide-illus" width="150" height="150" viewBox="0 0 120 120">
-                        <circle cx="60" cy="60" r="45" fill="#06b6d4" opacity="0.15">
-                            <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite"/>
-                        </circle>
+                        <circle cx="60" cy="60" r="45" fill="#06b6d4" opacity="0.15"><animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite"/></circle>
                         <rect x="35" y="40" width="50" height="40" rx="5" fill="none" stroke="#06b6d4" stroke-width="2.5"/>
                         <text x="60" y="35" text-anchor="middle" font-size="10" fill="#06b6d4" font-weight="700">KONTRAK</text>
                         <line x1="42" y1="52" x2="78" y2="52" stroke="#06b6d4" stroke-width="2" opacity="0.5"/>
                         <line x1="42" y1="60" x2="70" y2="60" stroke="#06b6d4" stroke-width="2" opacity="0.5"/>
                         <line x1="42" y1="68" x2="74" y2="68" stroke="#06b6d4" stroke-width="2" opacity="0.5"/>
                     </svg>
-                    <div class="slide-text">
-                        <h4>Peristiwa Masa Lalu</h4>
-                        <p>Kewajiban timbul karena ada transaksi atau peristiwa yang <strong>sudah terjadi</strong>, misal membeli barang secara kredit.</p>
-                    </div>
+                    <div class="slide-text"><h4>Peristiwa Masa Lalu</h4><p>Kewajiban timbul karena ada transaksi yang <strong>sudah terjadi</strong>, misal membeli barang secara kredit.</p></div>
                 </div>
             </div>
             <div class="slide">
                 <div class="slide-content">
                     <svg class="slide-illus" width="150" height="150" viewBox="0 0 120 120">
-                        <circle cx="60" cy="60" r="45" fill="#f59e0b" opacity="0.15">
-                            <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <text x="60" y="50" text-anchor="middle" font-size="30" fill="#f59e0b" font-weight="800">Rp</text>
-                        <path d="M45 70 Q60 90 75 70" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
-                        <circle cx="60" cy="85" r="3" fill="#f59e0b"/>
+                        <circle cx="60" cy="60" r="45" fill="#f59e0b" opacity="0.15"><animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite"/></circle>
+                        <text x="60" y="52" text-anchor="middle" font-size="30" fill="#f59e0b" font-weight="800">Rp</text>
+                        <path d="M45 72 Q60 92 75 72" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
                     </svg>
-                    <div class="slide-text">
-                        <h4>Arus Keluar Sumber Daya</h4>
-                        <p>Penyelesaian kewajiban akan <strong>mengurangi aset</strong> entitas — biasanya kas, tapi bisa juga barang atau jasa.</p>
-                    </div>
+                    <div class="slide-text"><h4>Arus Keluar Sumber Daya</h4><p>Penyelesaian kewajiban akan <strong>mengurangi aset</strong> — biasanya kas, tapi bisa juga barang atau jasa.</p></div>
                 </div>
             </div>
             <button class="slider-nav prev" onclick="slidePrev()">‹</button>
@@ -928,76 +506,46 @@ body.presentation .card { page-break-inside: avoid; }
 
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-                </div>
-                <h3>Definisi Resmi</h3>
-            </div>
-            <p>Sesuai <strong>PSAK No. 9</strong> &amp; <strong>SAK EP Bab 22</strong>:</p>
-            <div class="quote-box">
-                Kewajiban kini entitas yang timbul dari peristiwa masa lalu, yang penyelesaiannya dapat mengakibatkan arus keluar sumber daya entitas yang mengandung manfaat ekonomi.
-            </div>
-        </div>
-
-        <div class="card" data-aos="fade-up">
-            <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                </div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
                 <h3>3 Karakteristik Kewajiban</h3>
             </div>
-            <p style="color:var(--text-muted); font-size:13.5px; margin-bottom:6px;">👆 Klik setiap kartu untuk melihat detail</p>
+            <p style="color:var(--text-muted); font-size:13.5px; margin-bottom:6px;">👆 Klik setiap kartu untuk detail</p>
             <div class="flip-grid">
-                <div class="flip-card" data-aos="zoom-in" data-aos-delay="0">
-                    <div class="flip-inner">
-                        <div class="flip-front">
-                            <div class="num">01</div>
-                            <div class="title">Peristiwa Masa Lalu</div>
-                            <div class="hint">Klik untuk detail →</div>
-                        </div>
-                        <div class="flip-back">
-                            <strong style="color:var(--primary);">Transaksi sudah terjadi</strong><br>
-                            Ada kejadian yang sudah selesai dilakukan entitas, yang menciptakan tanggung jawab saat ini.
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="flip-inner">
-                        <div class="flip-front">
-                            <div class="num">02</div>
-                            <div class="title">Kewajiban Kini</div>
-                            <div class="hint">Klik untuk detail →</div>
-                        </div>
-                        <div class="flip-back">
-                            <strong style="color:var(--primary);">Tanggung jawab hukum / konstruktif</strong><br>
-                            Tanggung jawab sah, baik tertulis (hukum) maupun berdasarkan kebiasaan (konstruktif).
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="flip-inner">
-                        <div class="flip-front">
-                            <div class="num">03</div>
-                            <div class="title">Arus Keluar</div>
-                            <div class="hint">Klik untuk detail →</div>
-                        </div>
-                        <div class="flip-back">
-                            <strong style="color:var(--primary);">Mengurangi aset</strong><br>
-                            Penyelesaiannya akan mengakibatkan berkurangnya aset seperti uang kas, barang, atau sumber daya lain.
-                        </div>
-                    </div>
-                </div>
+                <div class="flip-card" data-aos="zoom-in"><div class="flip-inner"><div class="flip-front"><div class="num">01</div><div class="title">Peristiwa Masa Lalu</div><div class="hint">Klik untuk detail →</div></div><div class="flip-back"><strong style="color:var(--primary);">Transaksi sudah terjadi</strong><br>Ada kejadian yang sudah selesai dilakukan entitas, yang menciptakan tanggung jawab saat ini.</div></div></div>
+                <div class="flip-card" data-aos="zoom-in" data-aos-delay="100"><div class="flip-inner"><div class="flip-front"><div class="num">02</div><div class="title">Kewajiban Kini</div><div class="hint">Klik untuk detail →</div></div><div class="flip-back"><strong style="color:var(--primary);">Tanggung jawab hukum / konstruktif</strong><br>Tanggung jawab sah, baik tertulis maupun berdasarkan kebiasaan.</div></div></div>
+                <div class="flip-card" data-aos="zoom-in" data-aos-delay="200"><div class="flip-inner"><div class="flip-front"><div class="num">03</div><div class="title">Arus Keluar</div><div class="hint">Klik untuk detail →</div></div><div class="flip-back"><strong style="color:var(--primary);">Mengurangi aset</strong><br>Penyelesaiannya akan mengakibatkan berkurangnya aset seperti uang kas, barang, atau sumber daya lain.</div></div></div>
             </div>
         </div>
     </div>
 
     <!-- ===== TAB 2 ===== -->
     <div id="tab2" class="tab-content">
+        <div class="tab-hero" data-aos="fade-up">
+            <svg class="tab-hero-icon" viewBox="0 0 100 100">
+                <defs><linearGradient id="th2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="45" fill="url(#th2)" opacity="0.15"><animate attributeName="r" values="42;48;42" dur="3s" repeatCount="indefinite"/></circle>
+                <polyline points="25,65 40,45 55,55 75,30" fill="none" stroke="url(#th2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="25" cy="65" r="3" fill="#06b6d4"/>
+                <circle cx="40" cy="45" r="3" fill="#06b6d4"/>
+                <circle cx="55" cy="55" r="3" fill="#06b6d4"/>
+                <circle cx="75" cy="30" r="3" fill="#10b981"/>
+            </svg>
+            <div class="tab-hero-text">
+                <h2>Pengakuan &amp; Pengukuran</h2>
+                <p>Empat kriteria pengakuan kewajiban dan metode pengukuran nilainya.</p>
+            </div>
+        </div>
+
+        <div class="photo-section photo-business" data-aos="fade-up">
+            <div class="photo-section-content">
+                <h3>📋 Kriteria Pengakuan yang Ketat</h3>
+                <p>Kewajiban baru boleh masuk neraca jika memenuhi <strong>definisi</strong>, <strong>dapat diukur</strong>, <strong>relevan</strong>, dan <strong>andal</strong>. Tanpa 4 syarat ini, transaksi hanya dicatat di CALK.</p>
+            </div>
+        </div>
+
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                </div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
                 <h3>4 Kriteria Pengakuan</h3>
             </div>
             <ol style="padding-left:22px; line-height:2; font-size:15px;">
@@ -1010,9 +558,7 @@ body.presentation .card { page-break-inside: avoid; }
 
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-                </div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
                 <h3>Pengukuran Kewajiban</h3>
             </div>
             <ul>
@@ -1020,37 +566,45 @@ body.presentation .card { page-break-inside: avoid; }
                 <li><strong>Nilai berjalan (subsequent)</strong> — <span class="highlight">biaya perolehan diamortisasi</span> dengan suku bunga efektif.</li>
                 <li><strong>Estimasi terbaik</strong> — untuk provisi berdasarkan data historis.</li>
             </ul>
-            <p style="margin-top:14px; background:var(--surface-2); padding:14px 18px; border-radius:12px; border-left:3px solid var(--primary);">
-                📖 <strong>SAK EP Bab 11</strong> — mengatur pengukuran utang bank, utang usaha, dan wesel.
-            </p>
         </div>
 
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-                </div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
                 <h3>Contoh Komposisi Kewajiban</h3>
             </div>
-            <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:8px;">Ilustrasi komposisi kewajiban dalam neraca (dalam jutaan rupiah):</p>
+            <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:8px;">Ilustrasi komposisi kewajiban dalam neraca (juta rupiah):</p>
             <div class="chart-wrap"><canvas id="chartKomposisi"></canvas></div>
         </div>
     </div>
 
     <!-- ===== TAB 3 ===== -->
     <div id="tab3" class="tab-content">
+        <div class="tab-hero" data-aos="fade-up">
+            <svg class="tab-hero-icon" viewBox="0 0 100 100">
+                <defs><linearGradient id="th3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="45" fill="url(#th3)" opacity="0.15"><animate attributeName="r" values="42;48;42" dur="3s" repeatCount="indefinite"/></circle>
+                <rect x="20" y="30" width="25" height="45" rx="4" fill="none" stroke="url(#th3)" stroke-width="2.5"/>
+                <rect x="55" y="20" width="25" height="55" rx="4" fill="none" stroke="url(#th3)" stroke-width="2.5"/>
+                <line x1="25" y1="40" x2="40" y2="40" stroke="url(#th3)" stroke-width="2" opacity="0.6"/>
+                <line x1="25" y1="50" x2="40" y2="50" stroke="url(#th3)" stroke-width="2" opacity="0.6"/>
+                <line x1="60" y1="30" x2="75" y2="30" stroke="url(#th3)" stroke-width="2" opacity="0.6"/>
+                <line x1="60" y1="40" x2="75" y2="40" stroke="url(#th3)" stroke-width="2" opacity="0.6"/>
+                <line x1="60" y1="50" x2="75" y2="50" stroke="url(#th3)" stroke-width="2" opacity="0.6"/>
+            </svg>
+            <div class="tab-hero-text">
+                <h2>Klasifikasi Kewajiban</h2>
+                <p>Membedakan kewajiban jangka pendek vs jangka panjang sesuai SAK EP Bab 4.</p>
+            </div>
+        </div>
+
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                </div>
-                <h3>Klasifikasi Kewajiban</h3>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+                <h3>Dua Kategori Utama</h3>
             </div>
             <p><strong>Jangka Pendek (Current)</strong> — jatuh tempo ≤ 12 bulan.</p>
             <p style="margin-top:6px;"><strong>Jangka Panjang (Non-current)</strong> — jatuh tempo &gt; 12 bulan.</p>
-            <p style="margin-top:10px; font-size:13.5px; color:var(--text-muted);">
-                <em>SAK EP Bab 4</em>: klasifikasikan sebagai jangka pendek jika entitas memiliki hak tanpa syarat untuk menangguhkan penyelesaian ≥ 12 bulan.
-            </p>
         </div>
 
         <div class="dd-section" data-aos="fade-up">
@@ -1067,30 +621,42 @@ body.presentation .card { page-break-inside: avoid; }
                 <div class="dd-item" draggable="true" data-type="current">Utang Wesel (60 hari)</div>
             </div>
             <div class="dd-columns">
-                <div class="dd-col" id="colCurrent" data-col="current">
-                    <h4>📆 Jangka Pendek</h4>
-                    <div class="dd-placeholder">(taruh di sini)</div>
-                </div>
-                <div class="dd-col" id="colLong" data-col="long">
-                    <h4>📅 Jangka Panjang</h4>
-                    <div class="dd-placeholder">(taruh di sini)</div>
-                </div>
+                <div class="dd-col" id="colCurrent" data-col="current"><h4>📆 Jangka Pendek</h4><div class="dd-placeholder">(taruh di sini)</div></div>
+                <div class="dd-col" id="colLong" data-col="long"><h4>📅 Jangka Panjang</h4><div class="dd-placeholder">(taruh di sini)</div></div>
             </div>
-            <div class="btn-row">
-                <button class="btn btn-ghost" id="resetDD">↺ Reset Latihan</button>
-            </div>
+            <div class="btn-row"><button class="btn btn-ghost" id="resetDD">↺ Reset Latihan</button></div>
             <div class="dd-feedback" id="ddFeedback"></div>
         </div>
     </div>
 
     <!-- ===== TAB 4 ===== -->
     <div id="tab4" class="tab-content">
+        <div class="tab-hero" data-aos="fade-up">
+            <svg class="tab-hero-icon" viewBox="0 0 100 100">
+                <defs><linearGradient id="th4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="45" fill="url(#th4)" opacity="0.15"><animate attributeName="r" values="42;48;42" dur="3s" repeatCount="indefinite"/></circle>
+                <path d="M30 55 Q30 30 50 30 Q70 30 70 55 L70 70 L30 70 Z" fill="none" stroke="url(#th4)" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="50" cy="50" r="8" fill="none" stroke="url(#th4)" stroke-width="2.5"/>
+                <line x1="50" y1="42" x2="50" y2="38" stroke="url(#th4)" stroke-width="2"/>
+                <line x1="50" y1="58" x2="50" y2="62" stroke="url(#th4)" stroke-width="2"/>
+            </svg>
+            <div class="tab-hero-text">
+                <h2>Penyelesaian &amp; Pengungkapan</h2>
+                <p>Bagaimana kewajiban diselesaikan dan diungkapkan dalam laporan keuangan.</p>
+            </div>
+        </div>
+
+        <div class="photo-section photo-handshake" data-aos="fade-up">
+            <div class="photo-section-content">
+                <h3>🤝 Penyelesaian Kewajiban</h3>
+                <p>Ada berbagai cara entitas menyelesaikan kewajibannya — dari pembayaran tunai hingga konversi ke ekuitas. Metode mana yang dipilih bergantung pada situasi dan kesepakatan.</p>
+            </div>
+        </div>
+
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <h3>Penyelesaian Kewajiban</h3>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                <h3>Cara Penyelesaian</h3>
             </div>
             <ul>
                 <li><strong>Pembayaran kas</strong> — cara paling umum.</li>
@@ -1099,11 +665,10 @@ body.presentation .card { page-break-inside: avoid; }
                 <li><strong>Hapus buku</strong> — jika kewajiban kadaluwarsa.</li>
             </ul>
         </div>
+
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                </div>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
                 <h3>Pengungkapan (CALK)</h3>
             </div>
             <ul>
@@ -1116,32 +681,66 @@ body.presentation .card { page-break-inside: avoid; }
 
     <!-- ===== TAB 5 ===== -->
     <div id="tab5" class="tab-content">
+        <div class="tab-hero" data-aos="fade-up">
+            <svg class="tab-hero-icon" viewBox="0 0 100 100">
+                <defs><linearGradient id="th5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f43f5e"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="45" fill="url(#th5)" opacity="0.15"><animate attributeName="r" values="42;48;42" dur="3s" repeatCount="indefinite"/></circle>
+                <circle cx="50" cy="50" r="20" fill="none" stroke="url(#th5)" stroke-width="3"/>
+                <circle cx="50" cy="50" r="8" fill="url(#th5)"/>
+                <line x1="50" y1="15" x2="50" y2="25" stroke="url(#th5)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="50" y1="75" x2="50" y2="85" stroke="url(#th5)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="15" y1="50" x2="25" y2="50" stroke="url(#th5)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="75" y1="50" x2="85" y2="50" stroke="url(#th5)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div class="tab-hero-text">
+                <h2>Topik Khusus Terkait Kewajiban</h2>
+                <p>Isu-isu lanjutan: restrukturisasi, biaya pinjaman, sewa, valas, dan off-balance sheet.</p>
+            </div>
+        </div>
+
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                </div>
-                <h3>Topik Khusus Terkait Kewajiban</h3>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                <h3>Isu Lanjutan</h3>
             </div>
             <ul>
                 <li><strong>Restrukturisasi Utang</strong> — modifikasi syarat karena kesulitan keuangan.</li>
                 <li><strong>Biaya Pinjaman (PSAK 26)</strong> — bunga dapat <span class="highlight">dikapitalisasi</span> ke aset.</li>
                 <li><strong>Transaksi Sewa (PSAK 73)</strong> — mengakui <em>kewajiban sewa</em> & <em>hak guna aset</em>.</li>
                 <li><strong>Mata Uang Asing</strong> — utang valas dinilai ulang dengan kurs tengah BI.</li>
-                <li><strong>Pendapatan Diterima di Muka</strong> — dicatat sebagai liabilitas sampai kinerja selesai.</li>
-                <li><strong>Off-Balance Sheet</strong> — liabilitas kontingensi material wajib diungkap dalam CALK.</li>
+                <li><strong>Pendapatan Diterima di Muka</strong> — dicatat sebagai liabilitas.</li>
+                <li><strong>Off-Balance Sheet</strong> — liabilitas kontingensi material wajib diungkap.</li>
             </ul>
         </div>
     </div>
 
     <!-- ===== TAB 6 ===== -->
     <div id="tab6" class="tab-content">
+        <div class="tab-hero" data-aos="fade-up">
+            <svg class="tab-hero-icon" viewBox="0 0 100 100">
+                <defs><linearGradient id="th6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="45" fill="url(#th6)" opacity="0.15"><animate attributeName="r" values="42;48;42" dur="3s" repeatCount="indefinite"/></circle>
+                <path d="M30 40 L50 25 L70 40 L70 75 L30 75 Z" fill="none" stroke="url(#th6)" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M40 75 L40 55 L60 55 L60 75" fill="none" stroke="url(#th6)" stroke-width="2.5"/>
+                <circle cx="50" cy="48" r="4" fill="url(#th6)"/>
+            </svg>
+            <div class="tab-hero-text">
+                <h2>Garansi sebagai Provisi</h2>
+                <p>Perlakuan akuntansi untuk jaminan produk menurut SAK EP Bab 21.</p>
+            </div>
+        </div>
+
+        <div class="photo-section photo-calc" data-aos="fade-up">
+            <div class="photo-section-content">
+                <h3>🛠️ Estimasi Berbasis Data Historis</h3>
+                <p>Beban garansi dihitung menggunakan <strong>estimasi terbaik</strong> — biasanya berdasar persentase klaim masa lalu. Ini contoh penerapan provisi sesuai SAK EP.</p>
+            </div>
+        </div>
+
         <div class="card" data-aos="fade-up">
             <div class="card-header">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <h3>Garansi sebagai Provisi (SAK EP Bab 21)</h3>
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <h3>Perlakuan Garansi</h3>
             </div>
             <ul>
                 <li>Garansi menimbulkan <strong>kewajiban hukum</strong> untuk memperbaiki/mengganti.</li>
@@ -1175,29 +774,35 @@ body.presentation .card { page-break-inside: avoid; }
 
     <!-- ===== TAB 7 ===== -->
     <div id="tab7" class="tab-content">
+        <div class="tab-hero" data-aos="fade-up">
+            <svg class="tab-hero-icon" viewBox="0 0 100 100">
+                <defs><linearGradient id="th7" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
+                <circle cx="50" cy="50" r="45" fill="url(#th7)" opacity="0.15"><animate attributeName="r" values="42;48;42" dur="3s" repeatCount="indefinite"/></circle>
+                <circle cx="50" cy="50" r="25" fill="none" stroke="url(#th7)" stroke-width="2.5"/>
+                <text x="50" y="58" text-anchor="middle" font-size="22" font-weight="800" fill="url(#th7)">?</text>
+            </svg>
+            <div class="tab-hero-text">
+                <h2>Kuis Pemahaman</h2>
+                <p>Uji seberapa dalam pemahamanmu. Skor otomatis tersimpan.</p>
+            </div>
+        </div>
+
         <div class="quiz-header" data-aos="fade-up">
             <div class="progress-ring">
                 <svg width="92" height="92">
-                    <defs>
-                        <linearGradient id="gradRing" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#6366f1"/>
-                            <stop offset="100%" stop-color="#06b6d4"/>
-                        </linearGradient>
-                    </defs>
+                    <defs><linearGradient id="gradRing" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
                     <circle class="ring-bg" cx="46" cy="46" r="36"/>
                     <circle class="ring-fg" id="ringFg" cx="46" cy="46" r="36"/>
                 </svg>
                 <div class="score-text"><span id="scoreText">0</span><span style="font-size:13px;color:var(--text-muted);">/5</span></div>
             </div>
             <div class="quiz-header-info">
-                <h3>Kuis Pemahaman</h3>
-                <p>Pilih jawaban paling tepat. Skor otomatis tersimpan.</p>
+                <h3>Progress Kuis</h3>
+                <p>Pilih jawaban paling tepat untuk tiap soal.</p>
             </div>
         </div>
         <div id="quizContainer"></div>
-        <div class="btn-row">
-            <button class="btn btn-ghost" id="resetQuiz">↺ Ulangi Kuis</button>
-        </div>
+        <div class="btn-row"><button class="btn btn-ghost" id="resetQuiz">↺ Ulangi Kuis</button></div>
     </div>
 
     <footer>
@@ -1209,7 +814,7 @@ body.presentation .card { page-break-inside: avoid; }
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-/* ============ LOADER ============ */
+/* LOADER */
 let loadPct = 0;
 const loaderBar = document.getElementById('loaderBar');
 const loaderPct = document.getElementById('loaderPct');
@@ -1221,33 +826,22 @@ const loadInt = setInterval(() => {
 }, 120);
 function hideLoader() {
     document.getElementById('loader').classList.add('hide');
-    initAnimations();
-}
-setTimeout(() => { if (loadPct < 100) { loadPct = 100; loaderBar.style.width='100%'; loaderPct.textContent='100%'; hideLoader(); } }, 3000);
-
-/* ============ AOS ============ */
-function initAnimations() {
     if (window.AOS) AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 60 });
     startTyping();
     startCounters();
 }
+setTimeout(() => { if (loadPct < 100) { loadPct = 100; loaderBar.style.width='100%'; loaderPct.textContent='100%'; hideLoader(); } }, 3000);
 
-/* ============ TYPING ============ */
+/* TYPING */
 const typedTitle = document.getElementById('typedTitle');
 const fullText = 'Pembelajaran Akuntansi Kewajiban Interaktif';
 let charIdx = 0;
 function startTyping() {
     function type() {
-        if (charIdx <= fullText.length) {
-            typedTitle.textContent = fullText.substring(0, charIdx);
-            charIdx++;
-            setTimeout(type, 55);
-        }
+        if (charIdx <= fullText.length) { typedTitle.textContent = fullText.substring(0, charIdx); charIdx++; setTimeout(type, 55); }
     }
     setTimeout(type, 600);
 }
-
-/* ============ COUNTERS ============ */
 function startCounters() {
     document.querySelectorAll('.stat-num[data-count]').forEach(el => {
         const target = parseInt(el.dataset.count);
@@ -1261,42 +855,31 @@ function startCounters() {
     });
 }
 
-/* ============ SOUND (Web Audio API) ============ */
+/* SOUND */
 let audioCtx = null;
 let soundOn = localStorage.getItem('soundKewajiban') !== 'off';
 const soundToggle = document.getElementById('soundToggle');
 if (!soundOn) soundToggle.classList.add('muted');
 soundToggle.textContent = soundOn ? '🔊' : '🔇';
-
-function initAudio() {
-    if (!audioCtx) {
-        try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
-    }
-}
+function initAudio() { if (!audioCtx) try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} }
 document.addEventListener('click', initAudio, { once: true });
 document.addEventListener('touchstart', initAudio, { once: true });
-
 function beep(freq, dur = 0.08, type = 'sine', vol = 0.06, delay = 0) {
     if (!soundOn || !audioCtx) return;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
+    const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+    osc.type = type; osc.frequency.value = freq;
     gain.gain.setValueAtTime(0, audioCtx.currentTime + delay);
     gain.gain.linearRampToValueAtTime(vol, audioCtx.currentTime + delay + 0.01);
     gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + dur);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start(audioCtx.currentTime + delay);
-    osc.stop(audioCtx.currentTime + delay + dur + 0.02);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(audioCtx.currentTime + delay); osc.stop(audioCtx.currentTime + delay + dur + 0.02);
 }
-const sndClick  = () => beep(720, 0.05, 'sine', 0.05);
-const sndCorrect= () => { beep(660, 0.09, 'sine', 0.06); beep(880, 0.1, 'sine', 0.06, 0.09); beep(1175, 0.14, 'sine', 0.06, 0.18); };
-const sndWrong  = () => { beep(200, 0.15, 'sawtooth', 0.05); beep(160, 0.2, 'sawtooth', 0.05, 0.12); };
-const sndDrop   = () => beep(420, 0.08, 'triangle', 0.06);
-const sndWin    = () => { [523,659,784,1047].forEach((f,i) => beep(f, 0.18, 'sine', 0.07, i*0.13)); };
-const sndFlip   = () => beep(880, 0.05, 'triangle', 0.04);
-
+const sndClick = () => beep(720, 0.05, 'sine', 0.05);
+const sndCorrect = () => { beep(660, 0.09, 'sine', 0.06); beep(880, 0.1, 'sine', 0.06, 0.09); beep(1175, 0.14, 'sine', 0.06, 0.18); };
+const sndWrong = () => { beep(200, 0.15, 'sawtooth', 0.05); beep(160, 0.2, 'sawtooth', 0.05, 0.12); };
+const sndDrop = () => beep(420, 0.08, 'triangle', 0.06);
+const sndWin = () => [523,659,784,1047].forEach((f,i) => beep(f, 0.18, 'sine', 0.07, i*0.13));
+const sndFlip = () => beep(880, 0.05, 'triangle', 0.04);
 soundToggle.addEventListener('click', () => {
     soundOn = !soundOn;
     soundToggle.textContent = soundOn ? '🔊' : '🔇';
@@ -1305,7 +888,7 @@ soundToggle.addEventListener('click', () => {
     if (soundOn) sndClick();
 });
 
-/* ============ TABS ============ */
+/* TABS */
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 tabBtns.forEach(btn => {
@@ -1320,27 +903,24 @@ tabBtns.forEach(btn => {
     });
 });
 
-/* ============ SCROLL PROGRESS ============ */
+/* SCROLL PROGRESS */
 const scrollProgress = document.getElementById('scrollProgress');
 window.addEventListener('scroll', () => {
     const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     scrollProgress.style.width = ((window.scrollY / h) * 100) + '%';
 });
 
-/* ============ CURSOR GLOW ============ */
+/* CURSOR */
 const cursorDot = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 document.addEventListener('mousemove', e => {
     mouseX = e.clientX; mouseY = e.clientY;
-    cursorDot.style.left = mouseX + 'px';
-    cursorDot.style.top = mouseY + 'px';
+    cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px';
 });
 function animateRing() {
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
-    cursorRing.style.left = ringX + 'px';
-    cursorRing.style.top = ringY + 'px';
+    ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15;
+    cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px';
     requestAnimationFrame(animateRing);
 }
 animateRing();
@@ -1349,7 +929,7 @@ document.querySelectorAll('button, a, label, .flip-card, .dd-item, .tab-btn').fo
     el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
 });
 
-/* ============ DARK MODE ============ */
+/* THEME */
 const themeToggle = document.getElementById('themeToggle');
 function applyTheme(dark) {
     document.body.classList.toggle('dark', dark);
@@ -1360,32 +940,25 @@ function applyTheme(dark) {
 if (localStorage.getItem('themeKewajiban') === 'dark') applyTheme(true);
 themeToggle.addEventListener('click', () => { sndClick(); applyTheme(!document.body.classList.contains('dark')); });
 
-/* ============ SHARE ============ */
+/* SHARE */
 document.getElementById('shareBtn').addEventListener('click', async () => {
     sndClick();
     const url = window.location.href;
-    const data = { title: 'Pembelajaran Interaktif Akuntansi Kewajiban', text: 'Materi interaktif akuntansi kewajiban — gratis!', url };
+    const data = { title: 'Pembelajaran Interaktif Akuntansi Kewajiban', text: 'Materi interaktif akuntansi kewajiban.', url };
     if (navigator.share) { try { await navigator.share(data); return; } catch (e) {} }
-    try { await navigator.clipboard.writeText(url); alert('✅ Link berhasil disalin:\n' + url); }
-    catch (e) { prompt('Copy link ini:', url); }
+    try { await navigator.clipboard.writeText(url); alert('✅ Link disalin:\n' + url); }
+    catch (e) { prompt('Copy link:', url); }
 });
 
-/* ============ PRESENTATION MODE ============ */
+/* PRESENTATION */
 document.getElementById('presentBtn').addEventListener('click', () => {
     sndClick();
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen?.();
-        document.body.classList.add('presentation');
-    } else {
-        document.exitFullscreen?.();
-        document.body.classList.remove('presentation');
-    }
+    if (!document.fullscreenElement) { document.documentElement.requestFullscreen?.(); document.body.classList.add('presentation'); }
+    else { document.exitFullscreen?.(); document.body.classList.remove('presentation'); }
 });
-document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement) document.body.classList.remove('presentation');
-});
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presentation'); });
 
-/* ============ SLIDER ============ */
+/* SLIDER */
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 const dotsWrap = document.getElementById('sliderDots');
@@ -1409,12 +982,12 @@ let slideTimer = setInterval(slideNext, 6000);
 document.querySelector('.slider')?.addEventListener('mouseenter', () => clearInterval(slideTimer));
 document.querySelector('.slider')?.addEventListener('mouseleave', () => slideTimer = setInterval(slideNext, 6000));
 
-/* ============ FLIP CARDS ============ */
+/* FLIP */
 document.querySelectorAll('.flip-card').forEach(card => {
     card.addEventListener('click', () => { sndFlip(); card.classList.toggle('flipped'); });
 });
 
-/* ============ HOVER TILT ============ */
+/* HOVER TILT */
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('mousemove', e => {
         const r = card.getBoundingClientRect();
@@ -1425,7 +998,7 @@ document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('mouseleave', () => card.style.transform = '');
 });
 
-/* ============ RIPPLE ON BUTTONS ============ */
+/* RIPPLE */
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('click', e => {
         const r = btn.getBoundingClientRect();
@@ -1440,109 +1013,69 @@ document.querySelectorAll('.btn').forEach(btn => {
     });
 });
 
-/* ============ DRAG & DROP ============ */
+/* DRAG DROP */
 const colCurrent = document.getElementById('colCurrent');
 const colLong = document.getElementById('colLong');
 const resetDD = document.getElementById('resetDD');
 const ddFeedback = document.getElementById('ddFeedback');
 let dragData = null;
-
 function attachDrag(item) {
-    item.addEventListener('dragstart', function(e) {
-        this.classList.add('dragging');
-        dragData = this;
-        e.dataTransfer.setData('text/plain', this.textContent);
-    });
+    item.addEventListener('dragstart', function(e) { this.classList.add('dragging'); dragData = this; e.dataTransfer.setData('text/plain', this.textContent); });
     item.addEventListener('dragend', function() { this.classList.remove('dragging'); });
 }
 document.querySelectorAll('.dd-item').forEach(attachDrag);
-
-function showFeedback(type, msg) {
-    ddFeedback.className = 'dd-feedback show ' + type;
-    ddFeedback.textContent = msg;
-}
-
+function showFeedback(type, msg) { ddFeedback.className = 'dd-feedback show ' + type; ddFeedback.textContent = msg; }
 [colCurrent, colLong].forEach(col => {
     col.addEventListener('dragover', e => e.preventDefault());
     col.addEventListener('dragenter', function() { this.classList.add('drag-over'); });
     col.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
     col.addEventListener('drop', function(e) {
-        e.preventDefault();
-        this.classList.remove('drag-over');
-        if (!dragData) return;
+        e.preventDefault(); this.classList.remove('drag-over'); if (!dragData) return;
         sndDrop();
-        const ph = this.querySelector('.dd-placeholder');
-        if (ph) ph.remove();
-        const clone = dragData.cloneNode(true);
-        clone.draggable = false;
-        clone.classList.add('dropped');
-        this.appendChild(clone);
-        dragData.remove();
-        dragData = null;
+        const ph = this.querySelector('.dd-placeholder'); if (ph) ph.remove();
+        const clone = dragData.cloneNode(true); clone.draggable = false; clone.classList.add('dropped');
+        this.appendChild(clone); dragData.remove(); dragData = null;
         checkClassification();
     });
 });
-
 function checkClassification() {
-    const c = colCurrent.querySelectorAll('.dd-item');
-    const l = colLong.querySelectorAll('.dd-item');
+    const c = colCurrent.querySelectorAll('.dd-item'); const l = colLong.querySelectorAll('.dd-item');
     let correct = 0, total = 0;
     c.forEach(i => { total++; if (i.dataset.type === 'current') correct++; });
     l.forEach(i => { total++; if (i.dataset.type === 'long') correct++; });
     if (total === 0) { ddFeedback.className = 'dd-feedback'; return; }
-    if (correct === total) {
-        showFeedback('ok', '✅ Semua benar! Klasifikasi Anda tepat.');
-        sndCorrect();
-        burstConfetti(80);
-    } else {
-        showFeedback('warn', `⚠️ Masih ada yang salah tempat. Benar: ${correct}/${total}`);
-    }
+    if (correct === total) { showFeedback('ok', '✅ Semua benar! Klasifikasi Anda tepat.'); sndCorrect(); burstConfetti(80); }
+    else showFeedback('warn', `⚠️ Masih ada yang salah tempat. Benar: ${correct}/${total}`);
 }
-
 resetDD.addEventListener('click', function() {
     sndClick();
     const container = document.getElementById('ddItems');
-    document.querySelectorAll('.dd-col .dd-item').forEach(item => {
-        item.draggable = true;
-        item.classList.remove('dropped');
-        container.appendChild(item);
-        attachDrag(item);
-    });
+    document.querySelectorAll('.dd-col .dd-item').forEach(item => { item.draggable = true; item.classList.remove('dropped'); container.appendChild(item); attachDrag(item); });
     [colCurrent, colLong].forEach(col => {
         if (!col.querySelector('.dd-item') && !col.querySelector('.dd-placeholder')) {
-            const ph = document.createElement('div');
-            ph.className = 'dd-placeholder';
-            ph.textContent = '(taruh di sini)';
-            col.appendChild(ph);
+            const ph = document.createElement('div'); ph.className = 'dd-placeholder'; ph.textContent = '(taruh di sini)'; col.appendChild(ph);
         }
     });
     ddFeedback.className = 'dd-feedback';
 });
 
-/* ============ GARANSI SIMULATOR ============ */
+/* GARANSI */
 const penjualanInput = document.getElementById('penjualan');
 const persenInput = document.getElementById('persen');
 const persenDisplay = document.getElementById('persenDisplay');
 const garansiResult = document.getElementById('garansiResult');
 let currentValue = 0, targetValue = 0, rafId = null;
-
 function animateTo(target) {
-    targetValue = target;
-    if (rafId) cancelAnimationFrame(rafId);
+    targetValue = target; if (rafId) cancelAnimationFrame(rafId);
     const step = () => {
         const diff = targetValue - currentValue;
-        if (Math.abs(diff) < 1) {
-            currentValue = targetValue;
-            garansiResult.textContent = 'Rp ' + Math.round(currentValue).toLocaleString('id-ID');
-            return;
-        }
+        if (Math.abs(diff) < 1) { currentValue = targetValue; garansiResult.textContent = 'Rp ' + Math.round(currentValue).toLocaleString('id-ID'); return; }
         currentValue += diff * 0.18;
         garansiResult.textContent = 'Rp ' + Math.round(currentValue).toLocaleString('id-ID');
         rafId = requestAnimationFrame(step);
     };
     rafId = requestAnimationFrame(step);
 }
-
 function updateGaransi() {
     const penjualan = parseFloat(penjualanInput.value) || 0;
     const persen = parseFloat(persenInput.value) || 0;
@@ -1554,71 +1087,46 @@ function updateGaransi() {
     }
 }
 penjualanInput.addEventListener('input', updateGaransi);
-persenInput.addEventListener('input', () => { updateGaransi(); });
-setTimeout(() => updateGaransi(), 800);
+persenInput.addEventListener('input', updateGaransi);
 
-/* ============ CHARTS ============ */
+/* CHARTS */
 window.Charts = {};
 function initCharts() {
     if (!window.Chart) return;
-    const primaryColor = getComputedStyle(document.body).classList.contains('dark') ? '#e8eef9' : '#0f172a';
+    const isDark = document.body.classList.contains('dark');
     Chart.defaults.font.family = "'Inter', sans-serif";
-    Chart.defaults.color = primaryColor;
-
-    // Komposisi
+    Chart.defaults.color = isDark ? '#e8eef9' : '#0f172a';
     const ctx1 = document.getElementById('chartKomposisi');
     if (ctx1) {
         Charts.komposisi = new Chart(ctx1, {
             type: 'bar',
-            data: {
-                labels: ['Utang Usaha', 'Utang Bank', 'Utang Pajak', 'Obligasi', 'Provisi'],
+            data: { labels: ['Utang Usaha','Utang Bank','Utang Pajak','Obligasi','Provisi'],
                 datasets: [
-                    { label: 'Jangka Pendek', data: [45, 30, 12, 0, 5], backgroundColor: 'rgba(99,102,241,0.85)', borderRadius: 8, borderSkipped: false },
-                    { label: 'Jangka Panjang', data: [0, 20, 0, 80, 8], backgroundColor: 'rgba(6,182,212,0.85)', borderRadius: 8, borderSkipped: false }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' } },
-                    tooltip: { backgroundColor: 'rgba(15,23,42,0.9)', padding: 12, cornerRadius: 8, callbacks: { label: c => c.dataset.label + ': Rp ' + c.parsed.y + ' jt' } }
-                },
-                scales: {
-                    x: { stacked: false, grid: { display: false } },
-                    y: { grid: { color: 'rgba(148,163,184,0.15)' }, ticks: { callback: v => 'Rp ' + v + ' jt' } }
-                },
-                animation: { duration: 1200, easing: 'easeOutQuart' }
-            }
+                    { label: 'Jangka Pendek', data: [45,30,12,0,5], backgroundColor: 'rgba(99,102,241,0.85)', borderRadius: 8, borderSkipped: false },
+                    { label: 'Jangka Panjang', data: [0,20,0,80,8], backgroundColor: 'rgba(6,182,212,0.85)', borderRadius: 8, borderSkipped: false }
+                ] },
+            options: { responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' } },
+                    tooltip: { backgroundColor: 'rgba(15,23,42,0.9)', padding: 12, cornerRadius: 8, callbacks: { label: c => c.dataset.label + ': Rp ' + c.parsed.y + ' jt' } } },
+                scales: { x: { grid: { display: false } }, y: { grid: { color: 'rgba(148,163,184,0.15)' }, ticks: { callback: v => 'Rp ' + v + ' jt' } } },
+                animation: { duration: 1200, easing: 'easeOutQuart' } }
         });
     }
-
-    // Garansi
     const ctx2 = document.getElementById('chartGaransi');
     if (ctx2) {
         Charts.garansi = new Chart(ctx2, {
             type: 'doughnut',
-            data: {
-                labels: ['Beban Garansi', 'Penjualan Bersih'],
-                datasets: [{
-                    data: [3, 97],
-                    backgroundColor: ['rgba(239,68,68,0.9)', 'rgba(16,185,129,0.9)'],
-                    borderWidth: 0,
-                    hoverOffset: 8
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false, cutout: '65%',
-                plugins: {
-                    legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' } },
-                    tooltip: { backgroundColor: 'rgba(15,23,42,0.9)', padding: 12, cornerRadius: 8 }
-                },
-                animation: { animateScale: true, animateRotate: true, duration: 1000 }
-            }
+            data: { labels: ['Beban Garansi','Penjualan Bersih'],
+                datasets: [{ data: [3, 97], backgroundColor: ['rgba(239,68,68,0.9)', 'rgba(16,185,129,0.9)'], borderWidth: 0, hoverOffset: 8 }] },
+            options: { responsive: true, maintainAspectRatio: false, cutout: '65%',
+                plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyle: 'circle' } },
+                    tooltip: { backgroundColor: 'rgba(15,23,42,0.9)', padding: 12, cornerRadius: 8 } },
+                animation: { animateScale: true, animateRotate: true, duration: 1000 } }
         });
     }
 }
 
-/* ============ QUIZ ============ */
+/* QUIZ */
 const quizData = [
     { q: 'Kewajiban diakui dalam laporan keuangan jika memenuhi kriteria …', options: ['Memenuhi definisi dan dapat diukur','Hanya jika ada kontrak tertulis','Setelah dibayar','Jika disetujui oleh direksi'], correct: 0 },
     { q: 'Manakah yang termasuk kewajiban jangka pendek?', options: ['Utang Obligasi 10 tahun','Utang Bank 5 tahun','Utang Gaji','Utang Hipotik'], correct: 2 },
@@ -1628,7 +1136,6 @@ const quizData = [
 ];
 const QUIZ_KEY = 'quizKewajibanJawaban';
 const RING_LEN = 2 * Math.PI * 36;
-
 function buildQuiz() {
     const c = document.getElementById('quizContainer');
     c.innerHTML = '';
@@ -1638,11 +1145,8 @@ function buildQuiz() {
         div.className = 'quiz-question';
         div.dataset.idx = idx;
         div.setAttribute('data-aos', 'fade-up');
-        div.setAttribute('data-aos-delay', (idx * 60));
         let html = `<span class="q-num">Soal ${idx + 1}</span><p class="q-text">${q.q}</p><div class="quiz-options">`;
-        q.options.forEach((opt, i) => {
-            html += `<label><input type="radio" name="q${idx}" value="${i}"><span>${opt}</span></label>`;
-        });
+        q.options.forEach((opt, i) => { html += `<label><input type="radio" name="q${idx}" value="${i}"><span>${opt}</span></label>`; });
         html += `</div><div class="quiz-feedback" id="fb${idx}"></div>`;
         div.innerHTML = html;
         c.appendChild(div);
@@ -1653,134 +1157,82 @@ function buildQuiz() {
     });
     updateScore();
 }
-
 function checkQuestion(idx, save) {
     const qDiv = document.querySelector(`.quiz-question[data-idx="${idx}"]`);
     const selected = qDiv.querySelector('input[type="radio"]:checked');
     const fb = document.getElementById(`fb${idx}`);
     if (!selected) return;
     const val = parseInt(selected.value);
-    if (save !== false) {
-        const a = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}');
-        a[idx] = val;
-        localStorage.setItem(QUIZ_KEY, JSON.stringify(a));
-    }
+    if (save !== false) { const a = JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}'); a[idx] = val; localStorage.setItem(QUIZ_KEY, JSON.stringify(a)); }
     if (val === quizData[idx].correct) {
         qDiv.classList.add('correct'); qDiv.classList.remove('wrong');
-        fb.className = 'quiz-feedback show benar';
-        fb.textContent = '✅ Jawaban benar!';
+        fb.className = 'quiz-feedback show benar'; fb.textContent = '✅ Jawaban benar!';
         if (save !== false) sndCorrect();
     } else {
         qDiv.classList.add('wrong'); qDiv.classList.remove('correct');
-        fb.className = 'quiz-feedback show salah';
-        fb.textContent = '❌ Jawaban kurang tepat. Coba lagi.';
+        fb.className = 'quiz-feedback show salah'; fb.textContent = '❌ Jawaban kurang tepat. Coba lagi.';
         if (save !== false) sndWrong();
     }
     updateScore();
 }
-
 function updateScore() {
-    const total = quizData.length;
-    let benar = 0;
-    quizData.forEach((_, idx) => {
-        const fb = document.getElementById(`fb${idx}`);
-        if (fb && fb.classList.contains('benar')) benar++;
-    });
+    const total = quizData.length; let benar = 0;
+    quizData.forEach((_, idx) => { const fb = document.getElementById(`fb${idx}`); if (fb && fb.classList.contains('benar')) benar++; });
     document.getElementById('scoreText').textContent = benar;
-    const ring = document.getElementById('ringFg');
-    ring.style.strokeDashoffset = RING_LEN * (1 - benar / total);
+    const ring = document.getElementById('ringFg'); ring.style.strokeDashoffset = RING_LEN * (1 - benar / total);
     if (benar === total && !window._confettiDone) {
         const answered = Object.keys(JSON.parse(localStorage.getItem(QUIZ_KEY) || '{}')).length;
-        if (answered === total) {
-            window._confettiDone = true;
-            setTimeout(() => { burstConfetti(220); sndWin(); }, 300);
-        }
+        if (answered === total) { window._confettiDone = true; setTimeout(() => { burstConfetti(220); sndWin(); }, 300); }
     }
 }
-
 document.getElementById('resetQuiz').addEventListener('click', () => {
-    sndClick();
-    localStorage.removeItem(QUIZ_KEY);
-    window._confettiDone = false;
+    sndClick(); localStorage.removeItem(QUIZ_KEY); window._confettiDone = false;
     document.querySelectorAll('.quiz-question').forEach(q => {
         q.classList.remove('correct', 'wrong');
         q.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
-        const fb = q.querySelector('.quiz-feedback');
-        fb.className = 'quiz-feedback'; fb.textContent = '';
+        const fb = q.querySelector('.quiz-feedback'); fb.className = 'quiz-feedback'; fb.textContent = '';
     });
     updateScore();
 });
 
-/* ============ CONFETTI ============ */
+/* CONFETTI */
 const canvas = document.getElementById('confettiCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
 function resizeCanvas() { canvas.width = innerWidth; canvas.height = innerHeight; }
-resizeCanvas();
-addEventListener('resize', resizeCanvas);
-
+resizeCanvas(); addEventListener('resize', resizeCanvas);
 function burstConfetti(count = 120) {
-    const colors = ['#6366f1', '#06b6d4', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6'];
+    const colors = ['#6366f1','#06b6d4','#f59e0b','#10b981','#ef4444','#8b5cf6'];
     for (let i = 0; i < count; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: -20 - Math.random() * 200,
-            vx: (Math.random() - 0.5) * 4,
-            vy: 2 + Math.random() * 4,
-            size: 6 + Math.random() * 8,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            rot: Math.random() * Math.PI * 2,
-            vrot: (Math.random() - 0.5) * 0.3,
-            life: 0,
-            maxLife: 180 + Math.random() * 60
-        });
+        particles.push({ x: Math.random() * canvas.width, y: -20 - Math.random() * 200, vx: (Math.random() - 0.5) * 4, vy: 2 + Math.random() * 4, size: 6 + Math.random() * 8, color: colors[Math.floor(Math.random() * colors.length)], rot: Math.random() * Math.PI * 2, vrot: (Math.random() - 0.5) * 0.3, life: 0, maxLife: 180 + Math.random() * 60 });
     }
-    if (!window._confettiRunning) {
-        window._confettiRunning = true;
-        requestAnimationFrame(confettiLoop);
-    }
+    if (!window._confettiRunning) { window._confettiRunning = true; requestAnimationFrame(confettiLoop); }
 }
 function confettiLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles = particles.filter(p => p.life < p.maxLife && p.y < canvas.height + 50);
     particles.forEach(p => {
-        p.life++;
-        p.x += p.vx; p.y += p.vy; p.vy += 0.06;
-        p.rot += p.vrot;
-        ctx.save();
-        ctx.translate(p.x, p.y); ctx.rotate(p.rot);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = Math.max(0, 1 - p.life / p.maxLife);
-        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
-        ctx.restore();
+        p.life++; p.x += p.vx; p.y += p.vy; p.vy += 0.06; p.rot += p.vrot;
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+        ctx.fillStyle = p.color; ctx.globalAlpha = Math.max(0, 1 - p.life / p.maxLife);
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6); ctx.restore();
     });
     if (particles.length > 0) requestAnimationFrame(confettiLoop);
     else { window._confettiRunning = false; ctx.clearRect(0, 0, canvas.width, canvas.height); }
 }
 
-/* ============ PARTICLE BACKGROUND ============ */
+/* PARTICLE BG */
 const pCanvas = document.getElementById('particleCanvas');
 const pCtx = pCanvas.getContext('2d');
 let dots = [];
 function resizeP() { pCanvas.width = innerWidth; pCanvas.height = innerHeight; }
-resizeP();
-addEventListener('resize', resizeP);
-
+resizeP(); addEventListener('resize', resizeP);
 function initParticles() {
     dots = [];
     const count = Math.min(50, Math.floor(window.innerWidth / 25));
-    for (let i = 0; i < count; i++) {
-        dots.push({
-            x: Math.random() * pCanvas.width,
-            y: Math.random() * pCanvas.height,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4,
-            r: Math.random() * 1.8 + 0.5
-        });
-    }
+    for (let i = 0; i < count; i++) dots.push({ x: Math.random() * pCanvas.width, y: Math.random() * pCanvas.height, vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4, r: Math.random() * 1.8 + 0.5 });
 }
 initParticles();
-
 function particleLoop() {
     pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
     const isDark = document.body.classList.contains('dark');
@@ -1789,21 +1241,13 @@ function particleLoop() {
         d.x += d.vx; d.y += d.vy;
         if (d.x < 0 || d.x > pCanvas.width) d.vx *= -1;
         if (d.y < 0 || d.y > pCanvas.height) d.vy *= -1;
-        pCtx.beginPath();
-        pCtx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        pCtx.fillStyle = color + '0.4)';
-        pCtx.fill();
-        // connections
+        pCtx.beginPath(); pCtx.arc(d.x, d.y, d.r, 0, Math.PI * 2); pCtx.fillStyle = color + '0.4)'; pCtx.fill();
         for (let j = i + 1; j < dots.length; j++) {
             const dx = d.x - dots[j].x, dy = d.y - dots[j].y;
             const dist = Math.hypot(dx, dy);
             if (dist < 130) {
-                pCtx.beginPath();
-                pCtx.moveTo(d.x, d.y);
-                pCtx.lineTo(dots[j].x, dots[j].y);
-                pCtx.strokeStyle = color + (0.15 * (1 - dist / 130)) + ')';
-                pCtx.lineWidth = 0.6;
-                pCtx.stroke();
+                pCtx.beginPath(); pCtx.moveTo(d.x, d.y); pCtx.lineTo(dots[j].x, dots[j].y);
+                pCtx.strokeStyle = color + (0.15 * (1 - dist / 130)) + ')'; pCtx.lineWidth = 0.6; pCtx.stroke();
             }
         }
     });
@@ -1811,14 +1255,10 @@ function particleLoop() {
 }
 particleLoop();
 
-/* ============ INIT ============ */
+/* INIT */
 window.addEventListener('load', () => {
     buildQuiz();
     setTimeout(() => { initCharts(); updateGaransi(); }, 900);
-    setTimeout(() => {
-        const firstTabReveals = document.querySelectorAll('#tab1 .reveal, #tab1 [data-aos]');
-        firstTabReveals.forEach(el => el.classList.add('in'));
-    }, 1200);
 });
 </script>
 </body>
